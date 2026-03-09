@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Annotation Report</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+      white-space: pre-wrap;
+    }
+    th {
+      background: #f4f4f4;
+    }
+    img.thumbnail {
+      display: block;
+      max-width: 256px;
+      max-height: 256px;
+    }
+    .summary {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background: #fafafa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Annotation Report</h1>
+  <p>
+    Showing {{ total_annotations_selected }} annotations ({{ unique_images_count }} unique images, requested {{ num_annotations_requested }}).
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Image Info</th>
+        <th>Thumbnail</th>
+        <th>Other Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for ann in selected_annotations %}
+      <tr>
+        <td>{{ ann.combined_image_info }}</td>
+        <td>
+          {% if ann.thumbnail %}
+          <img class="thumbnail" src="{{ ann.thumbnail }}" alt="Thumbnail of {{ ann.image }}">
+          {% else %}
+          N/A
+          {% endif %}
+        </td>
+        <td>
+          {% for key, value in ann.items() %}
+            {% if key not in ['image', 'image_location', 'thumbnail', 'combined_image_info'] %}
+              <strong>{{ key }}:</strong> {{ value }}<br>
+            {% endif %}
+          {% endfor %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="summary">
+    <p>Report generated in {{ execution_time|round(2) }} seconds.</p>
+    {% if unfound_images %}
+      <h2>Unfound Images Summary</h2>
+      <p>The following images were not found in S3:</p>
+      <ul>
+        {% for img in unfound_images %}
+          <li>{{ img }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>All selected images were found.</p>
+    {% endif %}
+  </div>
+</body>
+</html>

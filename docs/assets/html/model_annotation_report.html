@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Model Annotation Report</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #fff;
+      color: #333;
+    }
+    h1, h2 { color: #333; }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+      vertical-align: top;
+      white-space: normal;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    th { background: #f4f4f4; }
+    .summary {
+      padding: 10px;
+      border: 1px solid #ccc;
+      background: #fafafa;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Model Annotation Report</h1>
+  <p><strong>Model Version:</strong> {{ model_version }}</p>
+  <p><strong>Tag:</strong> {{ tag }}</p>
+  <p><strong>Number of Images Processed:</strong> {{ num_images }}</p>
+  <p><strong>Date:</strong> {{ date_str }}</p>
+
+  <h2>COCO Evaluation Metrics (Iteration {{ iteration }})</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Average Precision (AP) @[ IoU=0.50:0.95 ]</td>
+        <td>{{ metrics.AP }}</td>
+      </tr>
+      <tr>
+        <td>AP @[ IoU=0.50 ]</td>
+        <td>{{ metrics.AP50 }}</td>
+      </tr>
+      <tr>
+        <td>AP @[ IoU=0.75 ]</td>
+        <td>{{ metrics.AP75 }}</td>
+      </tr>
+      <tr>
+        <td>AP Small</td>
+        <td>{{ metrics.AP_small }}</td>
+      </tr>
+      <tr>
+        <td>AP Medium</td>
+        <td>{{ metrics.AP_medium }}</td>
+      </tr>
+      <tr>
+        <td>AP Large</td>
+        <td>{{ metrics.AP_large }}</td>
+      </tr>
+      <tr>
+        <td>Average Recall (AR) @[ maxDets=1 ]</td>
+        <td>{{ metrics.AR_max1 }}</td>
+      </tr>
+      <tr>
+        <td>AR @[ maxDets=10 ]</td>
+        <td>{{ metrics.AR_max10 }}</td>
+      </tr>
+      <tr>
+        <td>AR @[ maxDets=100 ]</td>
+        <td>{{ metrics.AR_max100 }}</td>
+      </tr>
+      <tr>
+        <td>AR Small</td>
+        <td>{{ metrics.AR_small }}</td>
+      </tr>
+      <tr>
+        <td>AR Medium</td>
+        <td>{{ metrics.AR_medium }}</td>
+      </tr>
+      <tr>
+        <td>AR Large</td>
+        <td>{{ metrics.AR_large }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="summary">
+    <p><strong>Report generated in:</strong> {{ execution_time|default(0)|round(2) }} seconds</p>
+    {% if unfound_images %}
+      <h3>Unfound Images Summary</h3>
+      <p>The following images were not found:</p>
+      <ul>
+        {% for img in unfound_images %}
+          <li>{{ img }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>All selected images were found.</p>
+    {% endif %}
+  </div>
+</body>
+</html>

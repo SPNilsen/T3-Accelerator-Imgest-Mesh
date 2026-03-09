@@ -1,0 +1,223 @@
+/* ====================================================
+   Universal Print Color Adjustment
+   ==================================================== */
+* {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* ====================================================
+   Navigation Bar Styling
+   ==================================================== */
+.md-header__inner {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo-screen {
+  display: block;
+}
+.logo-print {
+  display: none;
+}
+
+.md-header__button.md-logo img {
+    height: 40px;
+}
+
+.md-header__title {
+    font-size: 24px;
+    line-height: 40px;
+    margin-left: 20px;
+    color: white;
+}
+
+/* ====================================================
+   Print-Specific Adjustments
+   ==================================================== */
+@media print {
+    h1 {
+      page-break-before: always;
+    }
+
+    h1::after {
+      content: "";
+      display: block;
+      height: 33vh;
+    }
+
+    /* Navigation bar */
+    .md-header__inner {
+        background-color: black !important;
+        color: white !important;
+        border-bottom: 4px solid black !important;
+    }
+    .md-header__title,
+    .md-header__title i {
+        color: white !important;
+    }
+    .logo-screen {
+      display: block !important;
+    }
+    .logo-print {
+      display: none !important;
+    }
+    /* Headlines and captions */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #4481A9 !important;
+    }
+    .caption-label {
+      color: #4481A9 !important;
+    }
+    .header-section-number {
+      color: #4481A9 !important;
+    }
+    #TOC,
+    #TOC ul,
+    #TOC li,
+    #TOC a,
+    #TOC .toc-section-number {
+        color: #4481A9 !important;
+    }
+    /* Mailto links */
+    a[href^="mailto:"] {
+      color: #4481A9 !important;
+      text-decoration: none !important;
+    }
+    a[href^="mailto:"]::after {
+         content: "" !important;
+    }
+    /* Code text */
+    pre, code.hljs, code {
+      color: #D35400 !important;
+      font-size: 13px !important;
+    }
+}
+
+/* ====================================================
+   Body & General Text Styling
+   ==================================================== */
+body {
+    font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    padding: 20px;
+    font-size: 14px;
+}
+
+/* ====================================================
+   Headings
+   ==================================================== */
+h1 {
+    font-size: 32px;
+    /*font-weight: bold;*/
+    color: #4481A9;
+}
+h1 .header-section-number {
+  display: block;
+  margin-bottom: 0.5em;
+}
+h2 {
+    font-size: 24px;
+    color: #4481A9;
+}
+h3 {
+    font-size: 18.72px;
+    font-style: italic;
+    color: #4481A9;
+}
+h4, h5, h6 {
+    font-size: 16px;
+    color: #4481A9;
+}
+/* Hide section numbers for h4 and deeper */
+h4 .header-section-number,
+h5 .header-section-number,
+h6 .header-section-number {
+    display: none !important;
+}
+
+.draft-text {
+    color: #8A0303 !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+/* ====================================================
+   Paragraphs
+   ==================================================== */
+p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* ====================================================
+   Code and Preformatted Text (including highlight.js)
+   ==================================================== */
+pre, code.hljs {
+    background-color: #FDEBD0 !important; /* Dull yellow background */
+    color: #D35400 !important;           /* Burnt orange text */
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px !important;
+}
+
+/* Inline code styling */
+code {
+    background-color: transparent; /* No distinct background */
+    color: #D35400;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+}
+
+/* Force the entire code block container to use the dull yellow background */
+div.sourceCode,
+.sourceCode,
+div.highlight,
+.highlight,
+pre {
+    background-color: #FDEBD0 !important;
+}
+
+/* ====================================================
+   Figure Caption Styling
+   ==================================================== */
+.caption-label {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #4481A9;
+}
+
+/* Ensure caption labels remain #4481A9 */
+.caption-label {
+  color: #4481A9 !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* ====================================================
+   Mailto Link Styling
+   ==================================================== */
+a[href^="mailto:"] {
+  color: #4481A9 !important;
+  text-decoration: none !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+a[href^="mailto:"]::after {
+     content: "" !important;
+}

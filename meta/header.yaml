@@ -1,0 +1,22 @@
+title: "Data & Analytics Accelerator: Imgest-Mesh"
+subtitle: "Overview of Application for Industrial Inspection"
+author:
+ - "Douglas Sayles, Trace3 – Data & Analytics <douglas.sayles@trace3.com>"
+company: "Trace3"
+department: "Data & Analytics"
+document-type: "Technical Report"
+classification: "Internal / Confidential"
+
+contact:
+  email: "douglas.sayles@trace3.com"
+  gitlab: "dosayles"
+
+version:
+  major: 1
+  minor: 0
+  patch: 0
+  label: "Baseline"
+
+copyright:
+  holder: "Trace3"
+  year: 2026

@@ -1,0 +1,172 @@
+/* css/styles.css */
+
+/* Navigation Bar Styling */
+.md-header__inner {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Ensure backgrounds print properly in supporting browsers */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+/* Default: show the screen logo, hide the print logo */
+.logo-screen {
+  display: block;
+}
+.logo-print {
+  display: none;
+}
+
+/* Header Button and Title */
+.md-header__button.md-logo img {
+    height: 40px;
+}
+
+.md-header__title {
+    font-size: 24px;
+    line-height: 40px;
+    margin-left: 20px;
+    color: white;
+}
+
+/* Print-specific adjustments */
+@media print {
+    .md-header__inner {
+        background-color: black !important;
+        color: white !important;
+        border-bottom: 4px solid black;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    .md-header__title {
+        color: white !important;
+    }
+    /* Force italicized header text to remain white */
+    .md-header__title i {
+        color: white !important;
+    }
+    /* Always show the screen logo and hide the print logo in print mode */
+    .logo-screen {
+      display: block !important;
+    }
+    .logo-print {
+      display: none !important;
+    }
+    /* Ensure the caption label keeps its #4481A9 color */
+    .caption-label {
+      color: #4481A9 !important;
+    }
+    /* Force mailto: links to use white color and remove any appended content */
+    a[href^="mailto:"] {
+      color: #4481A9 !important;
+      text-decoration: none !important;
+    }
+    a[href^="mailto:"]::after {
+         content: "" !important;
+    }
+}
+
+/* Body Styling */
+body {
+    font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    padding: 20px;
+    font-size: 14px;
+}
+
+/* Heading Styles */
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #4481A9;
+}
+h2 {
+    font-size: 24px;
+    color: #4481A9;
+}
+h3 {
+    font-size: 18.72px;
+    font-style: italic;
+    color: #4481A9;
+}
+h4, h5, h6 {
+    font-size: 16px;
+    color: #4481A9;
+}
+h4 .header-section-number,
+h5 .header-section-number,
+h6 .header-section-number {
+    display: none !important;
+}
+
+.draft-text {
+    color: #8A0303 !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+/* Paragraph and Text Styles */
+p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Code and Preformatted Text (including highlight.js-enhanced elements) */
+pre, code.hljs {
+    background-color: #FDEBD0; /* dull yellow */
+    color: #D35400;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 13px;
+}
+
+/* Code and Preformatted Text (including highlight.js-enhanced elements) */
+code {
+    background-color: transparent; /* No background difference */
+    color: #D35400;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 13px;
+    /*font-weight: bold; */
+}
+
+/* Force the entire code block container to use the dull yellow background */
+div.sourceCode, .sourceCode, div.highlight, .highlight, pre {
+    background-color: #FDEBD0 !important;
+}
+
+/* Make the figure caption label uppercase */
+.caption-label {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #4481A9;
+  /*color: #4481A9;*/
+}
+
+/* Ensure caption labels remain #4481A9 */
+.caption-label {
+  color: #4481A9 !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* Ensure mailto: links keep their designated color (white in this case)
+   You can change white to another color if needed */
+a[href^="mailto:"] {
+  color: #4481A9 !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  text-decoration: none !important;
+}
+a[href^="mailto:"]::after {
+     content: "" !important;
+}

@@ -1,0 +1,166 @@
+% assets/latex/header.tex
+% TeX Live 2024basic compatible: avoids titlesec, fvextra, tcolorbox, sectsty, mdframed
+
+% --- Fonts (Palatino-like) ---
+\usepackage{fontspec}
+
+% ---- Serif font fallback chain (Palatino-style) ----
+\IfFontExistsTF{TeX Gyre Pagella}{
+  \setmainfont{TeX Gyre Pagella}
+}{
+\IfFontExistsTF{Palatino Linotype}{
+  \setmainfont{Palatino Linotype}
+}{
+\IfFontExistsTF{Palatino}{
+  \setmainfont{Palatino}
+}{
+  \setmainfont{Times New Roman}
+}}}
+
+% ---- Monospace fallback chain ----
+\IfFontExistsTF{Courier New}{
+  \newfontfamily\CodeFont{Courier New}
+}{
+\IfFontExistsTF{TeX Gyre Cursor}{
+  \newfontfamily\CodeFont{TeX Gyre Cursor}
+}{
+  \newfontfamily\CodeFont{Latin Modern Mono}
+}}
+
+% --- Colors (exact hex from your CSS) ---
+\usepackage{xcolor}
+\definecolor{Trace3Blue}{HTML}{4481A9}
+\definecolor{CodeBG}{HTML}{FDEBD0}
+\definecolor{CodeText}{HTML}{D35400}
+
+% --- Page layout ---
+\usepackage{geometry}
+\geometry{
+  margin=1in,
+  headheight=34pt,
+  headsep=18pt
+}
+
+% --- Graphics paths (logo + images) ---
+\usepackage{graphicx}
+\graphicspath{{./}{docs/}{docs/assets/images/}{assets/images/}}
+
+% --- Repeat header bar on every page ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+
+\fancyhead[C]{%
+  \colorbox{black}{%
+    \parbox[c][22pt][c]{\textwidth}{%
+      \hspace{8pt}%
+      \includegraphics[height=14pt]{t3-logo-white-letters.png}%
+      \hfill%
+      {\color{white}\itshape Trace3 Data \& Analytics\ \textbar\ Data Science}%
+      \hspace{8pt}%
+    }%
+  }%
+}
+
+% Centered page number on content pages
+\fancyfoot{}                 % clear footer fields
+\fancyfoot[C]{\thepage}      % center page number
+
+% --- Headings: blue + each H1 starts a new page ---
+% We avoid titlesec; use core \@startsection hooks.
+\makeatletter
+
+% H1 in markdown -> \section in LaTeX (Pandoc default)
+% Force new page before every \section, and color it Trace3Blue
+\let\OldSection\section
+
+% Amount to push H1 down on its own page (tune if needed)
+\newcommand{\HOneDownshift}{0.40\textheight}
+
+\renewcommand\section{%
+  \clearpage
+  \vspace*{\HOneDownshift}%
+  \@startsection{section}{1}{\z@}%
+    {-3.5ex \@plus -1ex \@minus -.2ex}%
+    {2.3ex \@plus .2ex}%
+    {\normalfont\Large\bfseries\color{Trace3Blue}}%
+}
+
+\renewcommand\subsection{%
+  \@startsection{subsection}{2}{\z@}%
+    {-3.25ex\@plus -1ex \@minus -.2ex}%
+    {1.5ex \@plus .2ex}%
+    {\normalfont\large\bfseries\color{Trace3Blue}}%
+}
+
+\renewcommand\subsubsection{%
+  \@startsection{subsubsection}{3}{\z@}%
+    {-3.25ex\@plus -1ex \@minus -.2ex}%
+    {1.5ex \@plus .2ex}%
+    {\normalfont\normalsize\bfseries\color{Trace3Blue}}%
+}
+
+\makeatother
+
+% --- Captions: blue label, italic text (matches your CSS intent) ---
+\usepackage{caption}
+\captionsetup{
+  labelfont={bf,color=Trace3Blue},
+  textfont={it},
+  labelsep=colon
+}
+\renewcommand{\figurename}{Figure}
+
+% --- Code blocks: EXACT colors + padding (no tcolorbox/fvextra) ---
+% Pandoc emits Shaded + Highlighting. We'll implement both.
+\usepackage{fancyvrb}
+
+% This env is where the code characters are printed.
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+  commandchars=\\\{\},
+  fontsize=\small,
+  formatcom=\color{CodeText}\CodeFont
+}
+
+% Shaded wraps Highlighting. We'll mimic CSS-style background + padding.
+\newenvironment{Shaded}{%
+  \par\noindent
+  \setlength{\fboxsep}{4pt}% padding like CSS
+  \colorbox{CodeBG}{%
+    \begin{minipage}{0.97\linewidth}%
+      \vspace{2pt}%
+      \color{CodeText}\CodeFont\small%
+}{%
+      \vspace{2pt}%
+    \end{minipage}%
+  }%
+  \par
+}
+
+% Inline code: orange text, transparent background (like your CSS)
+\let\OldTexttt\texttt
+\renewcommand{\texttt}[1]{\OldTexttt{\textcolor{CodeText}{#1}}}
+
+% --- Links: Trace3Blue (including mailto) ---
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=Trace3Blue,
+  urlcolor=Trace3Blue,
+  citecolor=Trace3Blue
+}
+
+% --- Force fancy page style on all content pages ---
+\AtBeginDocument{
+  \pagestyle{fancy}
+}
+
+% --- No page number on title page ---
+\usepackage{etoolbox}
+\makeatletter
+\pretocmd{\maketitle}{\thispagestyle{empty}}{}{}
+\makeatother
+
+
+

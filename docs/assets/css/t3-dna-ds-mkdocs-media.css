@@ -1,0 +1,74 @@
+/* ====================================================
+   Universal Print Color Adjustment
+   ==================================================== */
+* {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* ====================================================
+   Print-Specific Adjustments
+   ==================================================== */
+@media print {
+    /* Make the header fixed so that it repeats on every page */
+    .md-header__inner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: black !important;
+        color: white !important;
+        border-bottom: 4px solid black !important;
+        z-index: 999; /* ensure it stays on top */
+    }
+    /* Adjust page content so it doesn't overlap the fixed header */
+    body {
+        margin-top: 80px; /* Adjust based on header height */
+    }
+    /* Ensure logo and title print with the correct styling */
+    .md-header__title,
+    .md-header__title i {
+        color: white !important;
+    }
+    .logo-screen {
+        display: block !important;
+    }
+    .logo-print {
+        display: none !important;
+    }
+    /* Headlines and captions */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #4481A9 !important;
+    }
+    .caption-label {
+      color: #4481A9 !important;
+    }
+    .header-section-number {
+      color: #4481A9 !important;
+    }
+    #TOC,
+    #TOC ul,
+    #TOC li,
+    #TOC a,
+    #TOC .toc-section-number {
+        color: #4481A9 !important;
+    }
+    /* Mailto links */
+    a[href^="mailto:"] {
+      color: #4481A9 !important;
+      text-decoration: none !important;
+    }
+    a[href^="mailto:"]::after {
+         content: "" !important;
+    }
+    /* Code text */
+    pre, code.hljs, code {
+      color: #D35400 !important;
+      font-size: 13px !important;
+    }
+}
