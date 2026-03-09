@@ -1,17 +1,11 @@
 # Use the official lightweight NGINX image
 FROM nginx:alpine
 
-# Remove the default NGINX site
+# remove default nginx page
 RUN rm /usr/share/nginx/html/index.html
 
-# Create a simple webpage
-RUN echo "<!DOCTYPE html>" > /usr/share/nginx/html/index.html && \
-    echo "<html>" >> /usr/share/nginx/html/index.html && \
-    echo "<head><title>Imgest Mesh Test</title></head>" >> /usr/share/nginx/html/index.html && \
-    echo "<body style='font-family: Arial; text-align:center; margin-top:10%;'>" >> /usr/share/nginx/html/index.html && \
-    echo "<img src='t3-imgest-mesh.png' style='width:200px'><br><br>" >> /usr/share/nginx/html/index.html && \
-    echo "<h1>It Works!</h1>" >> /usr/share/nginx/html/index.html && \
-    echo "</body></html>" >> /usr/share/nginx/html/index.html
+# copy our web page
+COPY resources/web/index.html /usr/share/nginx/html/index.html
 
 # Expose port
 EXPOSE 80

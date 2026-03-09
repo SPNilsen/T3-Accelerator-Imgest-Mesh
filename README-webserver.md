@@ -6,9 +6,9 @@ lima nerdctl build -t nginx-itworks -f resources/Dockerfile-webserver .
 ## Run
 
 lima nerdctl run --rm -it \
--p 8080:80 \
--v $(pwd)/docs/assets/images:/usr/share/nginx/html \
-nginx-itworks
+  -p 8080:80 \
+  -v $(pwd)/docs/assets/images/t3-imgest-mesh.png:/usr/share/nginx/html/t3-imgest-mesh.png:ro \
+  nginx-itworks
 
 
 ...then launch `http://localhost:8080`
