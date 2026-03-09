@@ -1,0 +1,20 @@
+# Use the official lightweight NGINX image
+FROM nginx:alpine
+
+# Remove the default NGINX site
+RUN rm /usr/share/nginx/html/index.html
+
+# Create a simple webpage
+RUN echo "<!DOCTYPE html>" > /usr/share/nginx/html/index.html && \
+    echo "<html>" >> /usr/share/nginx/html/index.html && \
+    echo "<head><title>Imgest Mesh Test</title></head>" >> /usr/share/nginx/html/index.html && \
+    echo "<body style='font-family: Arial; text-align:center; margin-top:20%;'>" >> /usr/share/nginx/html/index.html && \
+    echo "<h1>It Works!</h1>" >> /usr/share/nginx/html/index.html && \
+    echo "<p>Nginx container is running.</p>" >> /usr/share/nginx/html/index.html && \
+    echo "</body></html>" >> /usr/share/nginx/html/index.html
+
+# Expose port
+EXPOSE 80
+
+# Run nginx
+CMD ["nginx", "-g", "daemon off;"]
