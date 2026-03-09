@@ -1,0 +1,11 @@
+FROM nginxinc/nginx-unprivileged:stable-alpine
+
+# Copy nginx config
+COPY resources/webserver/nginx.conf /etc/nginx/nginx.conf
+
+# Copy site content
+COPY resources/webserver/index.html /usr/share/nginx/html/index.html
+
+EXPOSE 8080
+
+CMD ["nginx", "-g", "daemon off;"]
