@@ -1,8 +1,7 @@
 ## Build
 
-
 limactl start
-lima nerdctl build -t nginx-itworks .
+lima nerdctl build -t nginx-itworks -f resources/Dockerfile-webserver .
 
 ## Run
 
