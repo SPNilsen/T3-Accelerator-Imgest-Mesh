@@ -81,22 +81,24 @@ depending on deployment architecture.
 Imgest-Mesh follows a **microservice pipeline model** deployed on
 Kubernetes:
 
-Camera / Image Source\
-│\
-▼\
-Image Ingestion Service\
-│\
-▼\
-Pre-Processing Container\
-│\
-▼\
-Model Inference Container\
-│\
-▼\
-Pass / Fail Decision Engine\
-│\
-▼\
+```
+Camera / Image Source
+│
+▼
+Image Ingestion Service
+│
+▼
+Pre-Processing Container
+│
+▼
+Model Inference Container
+│
+▼
+Pass / Fail Decision Engine
+│
+▼
 Results & Integration Layer
+```
 
 Each stage of the pipeline is implemented as an independent container,
 allowing the system to scale horizontally and evolve without disrupting
@@ -166,10 +168,29 @@ Typical applications include:
 
 ## Repository Structure (Initial)
 
-. ├── containers/ │ ├── ingest/ │ ├── preprocess/ │ ├── inference/ │ └──
-decision/ │ ├── k8s/ │ ├── deployments/ │ ├── services/ │ └── pipelines/
-│ ├── src/ │ └── model/ │ ├── docs/ │ └── assets/ │ └── images/ │ └──
-t3-imgest-mesh.png │ └── README.md
+```
+.
+├── containers/
+│   ├── ingest/
+│   ├── preprocess/
+│   ├── inference/
+│   └── decision/
+│
+├── k8s/
+│   ├── deployments/
+│   ├── services/
+│   └── pipelines/
+│
+├── src/
+│   └── model/
+│
+├── docs/
+│   └── assets/
+│       └── images/
+│           └── t3-imgest-mesh.png
+│
+└── README.md
+```
 
 ------------------------------------------------------------------------
 
