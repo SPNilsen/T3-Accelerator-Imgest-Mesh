@@ -18,7 +18,7 @@ spec:
         - name: gitlab-registry-creds
       containers:
         - name: webserver
-          image: registry.gitlab.com/dosayles/imgest-mesh/nginx-itworks:0.1.0
+          image: registry.gitlab.com/dosayles/t3-imgest-mesh/nginx-itworks:0.1.0
           ports:
             - name: http
               containerPort: 8080

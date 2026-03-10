@@ -16,9 +16,9 @@ with how workloads are typically run inside OpenShift.  ￼
 
 ### Build & Push
 ```
-lima nerdctl build -t registry.gitlab.com/dosayles/imgest-mesh/nginx-itworks:0.1.0 -f resources/Containerfile-webserver .
+lima nerdctl build -t registry.gitlab.com/dosayles/t3-imgest-mesh/nginx-itworks:0.1.0 -f resources/Containerfile-webserver .
 lima nerdctl login registry.gitlab.com
-lima nerdctl push registry.gitlab.com/dosayles/imgest-mesh/nginx-itworks:0.1.0
+lima nerdctl push registry.gitlab.com/dosayles/t3-imgest-mesh/nginx-itworks:0.1.0
 ```
 
 ### Config
@@ -26,7 +26,7 @@ lima nerdctl push registry.gitlab.com/dosayles/imgest-mesh/nginx-itworks:0.1.0
 Point the Deployment at that GitLab image:
 
 ``` yaml
-image: registry.gitlab.com/dosayles/imgest-mesh/nginx-itworks:0.1.0
+image: registry.gitlab.com/dosayles/t3-imgest-mesh/nginx-itworks:0.1.0
 ```
 
 
