@@ -12,23 +12,48 @@ lightweight for local CLI testing while also making it structurally compatible
 with how workloads are typically run inside OpenShift.  ￼
 
 
+## AIPod...
 
-## Build
+### Build & Push
+```
+lima nerdctl build -t registry.gitlab.com/dosayles/imgest-mesh/nginx-itworks:0.1.0 -f resources/Containerfile-webserver .
+lima nerdctl login registry.gitlab.com
+lima nerdctl push registry.gitlab.com/dosayles/imgest-mesh/nginx-itworks:0.1.0
+```
 
+### Config
+
+Point the Deployment at that GitLab image:
+
+``` yaml
+image: registry.gitlab.com/dosayles/imgest-mesh/nginx-itworks:0.1.0
+```
+
+
+
+## Localized...
+
+### Build
+```
 limactl start
 lima nerdctl build -t nginx-itworks -f resources/Containerfile-webserver .
+```
 
-## Run
+### Run
 
+```
 lima nerdctl run --rm -it \
   -p 8080:8080 \
   -v $(pwd)/docs/assets/images/t3-imgest-mesh.png:/usr/share/nginx/html/t3-imgest-mesh.png:ro \
   nginx-itworks
-
+```
 
 ...then launch `http://localhost:8080`
 
-## Scrub-a-dub-dub...
 
+### Scrub-a-dub-dub...
+
+```
 lima nerdctl images
 lima nerdctl rmi nginx-itworks
+```
