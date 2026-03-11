@@ -1,0 +1,17 @@
+FROM python:3.11-slim
+
+WORKDIR /opt/orchestrator
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY app ./app
+COPY config ./config
+COPY scripts ./scripts
+
+RUN mkdir -p /opt/orchestrator/input /opt/orchestrator/output
+RUN chmod +x ./scripts/start.sh
+
+EXPOSE 8082
+
+CMD ["./scripts/start.sh"]

@@ -1,0 +1,17 @@
+service_name: orchestrator
+mode: file-router
+
+status:
+  host: 0.0.0.0
+  port: 8082
+
+watcher:
+  input_directory: /opt/orchestrator/input
+  poll_interval_seconds: 2
+
+routing:
+  strategy: round-robin
+  fanout_power: 1
+  targets:
+    - name: inference-1
+      output_directory: /opt/orchestrator/output/inference-1
