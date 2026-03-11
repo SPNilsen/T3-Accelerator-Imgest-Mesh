@@ -36,7 +36,8 @@ image: registry.gitlab.com/dosayles/t3-imgest-mesh/nginx-itworks:0.1.0
 ### Build
 ```
 limactl start
-lima nerdctl build -t nginx-itworks -f resources/webserver/Containerfile .
+lima nerdctl build -t nginx-itworks -f resources/webserver/Containerfile
+resources/webserver
 ```
 
 ### Run

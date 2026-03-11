@@ -1,10 +1,10 @@
 FROM nginxinc/nginx-unprivileged:stable-alpine
 
 # Copy nginx config
-COPY resources/webserver/nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy site content
-COPY resources/webserver/index.html /usr/share/nginx/html/index.html
+COPY index.html /usr/share/nginx/html/index.html
 
 EXPOSE 8080
 
