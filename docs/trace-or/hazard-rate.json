@@ -1,0 +1,64 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Hazard rate comparison for tool lifetimes using Weibull, Lognormal, and Gamma/Erlang models.",
+  "width": 650,
+  "height": 320,
+  "data": {
+    "sequence": { "start": 100, "stop": 60000, "step": 200 }
+  },
+  "transform": [
+    { "calculate": "datum.data", "as": "t" },
+
+    {
+      "calculate": "(1.7/12000)*pow(datum.t/12000,0.7)",
+      "as": "weibull"
+    },
+
+    {
+      "calculate": "(1/(datum.t*0.55*2.50662827463))*exp(-pow(log(datum.t)-8.8,2)/(2*pow(0.55,2))) / (1 - cumulativeLogNormal(datum.t,8.8,0.55))",
+      "as": "lognormal"
+    },
+
+    {
+      "calculate": "(pow(datum.t,2)/(pow(4000,3)*2)) / (1 - (1 - exp(-datum.t/4000)*(1 + datum.t/4000 + pow(datum.t/4000,2)/2)))",
+      "as": "gamma"
+    },
+
+    {
+      "fold": ["weibull", "lognormal", "gamma"],
+      "as": ["model", "hazard"]
+    },
+
+    {
+      "calculate": "datum.model == 'weibull' ? 'Weibull (β=1.7)' : datum.model == 'lognormal' ? 'Lognormal' : 'Gamma/Erlang (k=3)'",
+      "as": "label"
+    }
+  ],
+  "mark": { "type": "line", "strokeWidth": 2 },
+  "encoding": {
+    "x": {
+      "field": "t",
+      "type": "quantitative",
+      "scale": { "type": "log" },
+      "axis": { "title": "Time in Service (hours, log scale)" }
+    },
+    "y": {
+      "field": "hazard",
+      "type": "quantitative",
+      "axis": { "title": "Hazard Rate (instantaneous failure risk)" }
+    },
+    "color": {
+      "field": "label",
+      "type": "nominal",
+      "title": "Model"
+    },
+    "tooltip": [
+      { "field": "label", "type": "nominal", "title": "Model" },
+      { "field": "t", "type": "quantitative", "title": "Hours", "format": ",.0f" },
+      { "field": "hazard", "type": "quantitative", "title": "Hazard Rate", "format": ".3e" }
+    ]
+  },
+  "config": {
+    "axis": { "labelFontSize": 11, "titleFontSize": 12 }
+  }
+}

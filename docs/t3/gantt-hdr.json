@@ -1,0 +1,85 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Dataviz by David Bacci: https://www.linkedin.com/in/davbacci/",
+  "autosize": "pad",
+  "background": "white",
+  "padding": {
+    "left": 10,
+    "right": 10,
+    "top": 10,
+    "bottom": 10
+  },
+  "signals": [
+    {
+      "name": "y_step",
+      "value": 33
+    },
+    {
+      "name": "x_step",
+      "value": 26
+    },
+    {
+      "name": "days",
+      "update": "data('days')[0]['days']"
+    },
+    {
+      "name": "yPaddingInner",
+      "value": 0.45
+    },
+    {
+      "name": "yPaddingOuter",
+      "value": 0.2
+    },
+    {
+      "name": "taskColumn",
+      "value": 500
+    },
+    {
+      "name": "startColumn",
+      "value": 45
+    },
+    {
+      "name": "endColumn",
+      "value": 45
+    },
+    {
+      "name": "daysColumn",
+      "value": 35
+    },
+    {
+      "name": "progressColumn",
+      "value": 55
+    },
+    {
+      "name": "columnPadding",
+      "value": 15
+    },
+    {
+      "name": "height",
+      "update": "bandspace(domain('y').length, yPaddingInner, yPaddingOuter) * y_step"
+    },
+    {
+      "name": "ganttWidth",
+      "update": "days * x_step"
+    },
+    {
+      "name": "width",
+      "update": "taskColumn + startColumn + endColumn + daysColumn + progressColumn + columnPadding * 6 + ganttWidth"
+    },
+    {
+      "name": "length",
+      "update": "span(domain('xDays'))"
+    },
+    {
+      "name": "today",
+      "update": "datetime(now())"
+    },
+    {
+      "name": "todayRule",
+      "update": "timeFormat(today,'%m/%d/%y')"
+    }
+  ],
+  "data": [
+    {
+      "name": "input",
+      "values": [

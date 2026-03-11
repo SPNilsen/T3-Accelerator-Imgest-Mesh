@@ -1,0 +1,308 @@
+t3-service@nx-w0:~$ nvsm show health
+ERROR:nvsm:nvsm must be run with root privileges
+t3-service@nx-w0:~$ sudo nvsm show health
+Progress bar is not supported for this terminal. Please wait for results
+Running standard show health
+
+Info
+----
+Timestamp           :     Wed May  1 02:20:25 UTC 2024
+Version             :     23.12.01
+
+Checks
+------
+Verify installed DIMM memory sticks.................................. Healthy
+Verify disk controllers.............................................. Healthy
+Verify logical resource of NVMe devices.............................. Healthy
+Verify Network Adapters.............................................. Healthy
+Verify Cluster NIC active link technology consistency................ Healthy
+Verify Storage NIC active link technology consistency................ Healthy
+    Found InfiniBand for link/s PCI0000_86_00_1
+    Found Ethernet for link/s PCI0000_86_00_0
+Verify Cluster NIC devices consistency............................... Healthy
+Verify Storage NIC devices consistency............................... Healthy
+Verify installed GPU's............................................... Healthy
+Verify installed VGA Controllers..................................... Healthy
+Presence of NVSwitch controllers on PCI bus.......................... Healthy
+Verify PCIe switches................................................. Healthy
+Verify DIMM vendors.................................................. Healthy
+Verify DIMM vendors consistency...................................... Healthy
+Verify chassis [Serial:1574719000010] fan presence................... Healthy
+Check FRU information for consistency................................ Healthy
+Verify GPUs VBIOS version consistency................................ Healthy
+VBIOS Version [GPU0 [00000000:34:00.0]] [88.00.6B.00.05]
+Inforom Storage Version [GPU0 [00000000:34:00.0]] [G504.0201.00.01]
+VBIOS Version [GPU1 [00000000:36:00.0]] [88.00.6B.00.05]
+Inforom Storage Version [GPU1 [00000000:36:00.0]] [G504.0201.00.01]
+VBIOS Version [GPU2 [00000000:39:00.0]] [88.00.6B.00.05]
+Inforom Storage Version [GPU2 [00000000:39:00.0]] [G504.0201.00.01]
+VBIOS Version [GPU3 [00000000:3B:00.0]] [88.00.6B.00.05]
+Inforom Storage Version [GPU3 [00000000:3B:00.0]] [G504.0201.00.01]
+VBIOS Version [GPU4 [00000000:57:00.0]] [88.00.6B.00.05]
+Inforom Storage Version [GPU4 [00000000:57:00.0]] [G504.0201.00.01]
+VBIOS Version [GPU5 [00000000:59:00.0]] [88.00.6B.00.05]
+Inforom Storage Version [GPU5 [00000000:59:00.0]] [G504.0201.00.01]
+VBIOS Version [GPU6 [00000000:5C:00.0]] [88.00.6B.00.05]
+Inforom Storage Version [GPU6 [00000000:5C:00.0]] [G504.0201.00.01]
+VBIOS Version [GPU7 [00000000:5E:00.0]] [88.00.6B.00.05]
+Inforom Storage Version [GPU7 [00000000:5E:00.0]] [G504.0201.00.01]
+VBIOS Version [GPU8 [00000000:B7:00.0]] [88.00.6B.00.05]
+Inforom Storage Version [GPU8 [00000000:B7:00.0]] [G504.0201.00.01]
+VBIOS Version [GPU9 [00000000:B9:00.0]] [88.00.6B.00.05]
+Inforom Storage Version [GPU9 [00000000:B9:00.0]] [G504.0201.00.01]
+VBIOS Version [GPU10 [00000000:BC:00.0]] [88.00.6B.00.05]
+Inforom Storage Version [GPU10 [00000000:BC:00.0]] [G504.0201.00.01]
+VBIOS Version [GPU11 [00000000:BE:00.0]] [88.00.6B.00.05]
+Inforom Storage Version [GPU11 [00000000:BE:00.0]] [G504.0201.00.01]
+VBIOS Version [GPU12 [00000000:E0:00.0]] [88.00.6B.00.05]
+Inforom Storage Version [GPU12 [00000000:E0:00.0]] [G504.0201.00.01]
+VBIOS Version [GPU13 [00000000:E2:00.0]] [88.00.6B.00.05]
+Inforom Storage Version [GPU13 [00000000:E2:00.0]] [G504.0201.00.01]
+VBIOS Version [GPU14 [00000000:E5:00.0]] [88.00.6B.00.05]
+Inforom Storage Version [GPU14 [00000000:E5:00.0]] [G504.0201.00.01]
+VBIOS Version [GPU15 [00000000:E7:00.0]] [88.00.6B.00.05]
+Inforom Storage Version [GPU15 [00000000:E7:00.0]] [G504.0201.00.01]
+Verify GPUs SKU Type consistency..................................... Healthy
+Quick health check of GPU using DCGM................................. Healthy
+    Found 0 device(s) recommended for blacklist:
+Number of logical CPU cores[96]...................................... Healthy
+    Observed 96 logical CPU cores, matching expectations
+Status of volumes.................................................... Healthy
+Status of software RAID disk superblocks............................. Healthy
+Check SMART status of NVMe devices................................... Healthy
+Verify NVIDIA ConnectX devices firmware version consistency.......... Healthy
+Verify GPU's identified using nvidia-smi............................. Healthy
+Check GPUs p2p Topology information for consistency.................. Healthy
+Verify installed NVMe devices........................................ Healthy
+Verify chassis [Serial:1574719000010] power supply presence.......... Healthy
+GPU link speed [0000:36:00.0][8GT/s]................................. Healthy
+GPU link width [0000:36:00.0][x16]................................... Healthy
+GPU link speed [0000:34:00.0][8GT/s]................................. Healthy
+GPU link width [0000:34:00.0][x16]................................... Healthy
+GPU link speed [0000:5e:00.0][8GT/s]................................. Healthy
+GPU link width [0000:5e:00.0][x16]................................... Healthy
+GPU link speed [0000:3b:00.0][8GT/s]................................. Healthy
+GPU link width [0000:3b:00.0][x16]................................... Healthy
+GPU link speed [0000:b7:00.0][8GT/s]................................. Healthy
+GPU link width [0000:b7:00.0][x16]................................... Healthy
+GPU link speed [0000:be:00.0][8GT/s]................................. Healthy
+GPU link width [0000:be:00.0][x16]................................... Healthy
+GPU link speed [0000:e5:00.0][8GT/s]................................. Healthy
+GPU link width [0000:e5:00.0][x16]................................... Healthy
+GPU link speed [0000:5c:00.0][8GT/s]................................. Healthy
+GPU link width [0000:5c:00.0][x16]................................... Healthy
+GPU link speed [0000:b9:00.0][8GT/s]................................. Healthy
+GPU link width [0000:b9:00.0][x16]................................... Healthy
+GPU link speed [0000:59:00.0][8GT/s]................................. Healthy
+GPU link width [0000:59:00.0][x16]................................... Healthy
+GPU link speed [0000:57:00.0][8GT/s]................................. Healthy
+GPU link width [0000:57:00.0][x16]................................... Healthy
+GPU link speed [0000:e0:00.0][8GT/s]................................. Healthy
+GPU link width [0000:e0:00.0][x16]................................... Healthy
+GPU link speed [0000:39:00.0][8GT/s]................................. Healthy
+GPU link width [0000:39:00.0][x16]................................... Healthy
+GPU link speed [0000:e2:00.0][8GT/s]................................. Healthy
+GPU link width [0000:e2:00.0][x16]................................... Healthy
+GPU link speed [0000:bc:00.0][8GT/s]................................. Healthy
+GPU link width [0000:bc:00.0][x16]................................... Healthy
+GPU link speed [0000:e7:00.0][8GT/s]................................. Healthy
+GPU link width [0000:e7:00.0][x16]................................... Healthy
+NVMe link speed [0000:01:00.0][8GT/s]................................ Healthy
+NVMe link width [0000:01:00.0][x4]................................... Healthy
+NVMe link speed [0000:05:00.0][8GT/s]................................ Healthy
+NVMe link width [0000:05:00.0][x4]................................... Healthy
+NVMe link speed [0000:2e:00.0][8GT/s]................................ Healthy
+NVMe link width [0000:2e:00.0][x4]................................... Healthy
+NVMe link speed [0000:2f:00.0][8GT/s]................................ Healthy
+NVMe link width [0000:2f:00.0][x4]................................... Healthy
+NVMe link speed [0000:51:00.0][8GT/s]................................ Healthy
+NVMe link width [0000:51:00.0][x4]................................... Healthy
+NVMe link speed [0000:52:00.0][8GT/s]................................ Healthy
+NVMe link width [0000:52:00.0][x4]................................... Healthy
+NVMe link speed [0000:b1:00.0][8GT/s]................................ Healthy
+NVMe link width [0000:b1:00.0][x4]................................... Healthy
+NVMe link speed [0000:b2:00.0][8GT/s]................................ Healthy
+NVMe link width [0000:b2:00.0][x4]................................... Healthy
+NVMe link speed [0000:da:00.0][8GT/s]................................ Healthy
+NVMe link width [0000:da:00.0][x4]................................... Healthy
+NVMe link speed [0000:db:00.0][8GT/s]................................ Healthy
+NVMe link width [0000:db:00.0][x4]................................... Healthy
+NetworkAdapter link speed [0000:06:00.0][2.5GT/s].................... Healthy
+NetworkAdapter link width [0000:06:00.0][x1]......................... Healthy
+NetworkAdapter link speed [0000:35:00.0][2.5GT/s].................... Unhealthy
+    Expected value 8GT/s but detected 2.5GT/s
+NetworkAdapter link width [0000:35:00.0][x16]........................ Healthy
+NetworkAdapter link speed [0000:3a:00.0][8GT/s]...................... Healthy
+NetworkAdapter link width [0000:3a:00.0][x16]........................ Healthy
+NetworkAdapter link speed [0000:58:00.0][8GT/s]...................... Healthy
+NetworkAdapter link width [0000:58:00.0][x16]........................ Healthy
+NetworkAdapter link speed [0000:5d:00.0][8GT/s]...................... Healthy
+NetworkAdapter link width [0000:5d:00.0][x16]........................ Healthy
+NetworkAdapter link speed [0000:86:00.0][8GT/s]...................... Healthy
+NetworkAdapter link width [0000:86:00.0][x16]........................ Healthy
+NetworkAdapter link speed [0000:86:00.1][8GT/s]...................... Healthy
+NetworkAdapter link width [0000:86:00.1][x16]........................ Healthy
+NetworkAdapter link speed [0000:b8:00.0][8GT/s]...................... Healthy
+NetworkAdapter link width [0000:b8:00.0][x16]........................ Healthy
+NetworkAdapter link speed [0000:bd:00.0][8GT/s]...................... Healthy
+NetworkAdapter link width [0000:bd:00.0][x16]........................ Healthy
+NetworkAdapter link speed [0000:e1:00.0][8GT/s]...................... Healthy
+NetworkAdapter link width [0000:e1:00.0][x16]........................ Healthy
+NetworkAdapter link speed [0000:e6:00.0][8GT/s]...................... Healthy
+NetworkAdapter link width [0000:e6:00.0][x16]........................ Healthy
+Check GPUDirect Topology information for consistency................. Healthy
+NVIDIA Driver Version [535.161.08]
+Checking NVLink speed [GPU0 [0000:34:00.0] Link 0][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU0 [0000:34:00.0] Link 1][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU0 [0000:34:00.0] Link 2][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU0 [0000:34:00.0] Link 3][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU0 [0000:34:00.0] Link 4][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU0 [0000:34:00.0] Link 5][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU1 [0000:36:00.0] Link 5][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU1 [0000:36:00.0] Link 0][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU1 [0000:36:00.0] Link 1][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU1 [0000:36:00.0] Link 2][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU1 [0000:36:00.0] Link 3][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU1 [0000:36:00.0] Link 4][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU2 [0000:39:00.0] Link 0][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU2 [0000:39:00.0] Link 1][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU2 [0000:39:00.0] Link 2][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU2 [0000:39:00.0] Link 3][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU2 [0000:39:00.0] Link 4][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU2 [0000:39:00.0] Link 5][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU3 [0000:3b:00.0] Link 1][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU3 [0000:3b:00.0] Link 2][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU3 [0000:3b:00.0] Link 3][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU3 [0000:3b:00.0] Link 4][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU3 [0000:3b:00.0] Link 5][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU3 [0000:3b:00.0] Link 0][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU4 [0000:57:00.0] Link 0][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU4 [0000:57:00.0] Link 1][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU4 [0000:57:00.0] Link 2][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU4 [0000:57:00.0] Link 3][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU4 [0000:57:00.0] Link 4][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU4 [0000:57:00.0] Link 5][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU5 [0000:59:00.0] Link 0][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU5 [0000:59:00.0] Link 1][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU5 [0000:59:00.0] Link 2][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU5 [0000:59:00.0] Link 3][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU5 [0000:59:00.0] Link 4][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU5 [0000:59:00.0] Link 5][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU6 [0000:5c:00.0] Link 0][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU6 [0000:5c:00.0] Link 1][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU6 [0000:5c:00.0] Link 2][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU6 [0000:5c:00.0] Link 3][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU6 [0000:5c:00.0] Link 4][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU6 [0000:5c:00.0] Link 5][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU7 [0000:5e:00.0] Link 4][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU7 [0000:5e:00.0] Link 5][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU7 [0000:5e:00.0] Link 0][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU7 [0000:5e:00.0] Link 1][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU7 [0000:5e:00.0] Link 2][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU7 [0000:5e:00.0] Link 3][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU8 [0000:b7:00.0] Link 2][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU8 [0000:b7:00.0] Link 3][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU8 [0000:b7:00.0] Link 4][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU8 [0000:b7:00.0] Link 5][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU8 [0000:b7:00.0] Link 0][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU8 [0000:b7:00.0] Link 1][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU9 [0000:b9:00.0] Link 5][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU9 [0000:b9:00.0] Link 0][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU9 [0000:b9:00.0] Link 1][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU9 [0000:b9:00.0] Link 2][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU9 [0000:b9:00.0] Link 3][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU9 [0000:b9:00.0] Link 4][25.781 GB/s]...... Healthy
+Checking NVLink speed [GPU10 [0000:bc:00.0] Link 3][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU10 [0000:bc:00.0] Link 4][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU10 [0000:bc:00.0] Link 5][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU10 [0000:bc:00.0] Link 0][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU10 [0000:bc:00.0] Link 1][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU10 [0000:bc:00.0] Link 2][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU11 [0000:be:00.0] Link 0][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU11 [0000:be:00.0] Link 1][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU11 [0000:be:00.0] Link 2][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU11 [0000:be:00.0] Link 3][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU11 [0000:be:00.0] Link 4][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU11 [0000:be:00.0] Link 5][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU12 [0000:e0:00.0] Link 0][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU12 [0000:e0:00.0] Link 1][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU12 [0000:e0:00.0] Link 2][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU12 [0000:e0:00.0] Link 3][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU12 [0000:e0:00.0] Link 4][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU12 [0000:e0:00.0] Link 5][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU13 [0000:e2:00.0] Link 0][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU13 [0000:e2:00.0] Link 1][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU13 [0000:e2:00.0] Link 2][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU13 [0000:e2:00.0] Link 3][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU13 [0000:e2:00.0] Link 4][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU13 [0000:e2:00.0] Link 5][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU14 [0000:e5:00.0] Link 3][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU14 [0000:e5:00.0] Link 4][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU14 [0000:e5:00.0] Link 5][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU14 [0000:e5:00.0] Link 0][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU14 [0000:e5:00.0] Link 1][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU14 [0000:e5:00.0] Link 2][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU15 [0000:e7:00.0] Link 0][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU15 [0000:e7:00.0] Link 1][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU15 [0000:e7:00.0] Link 2][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU15 [0000:e7:00.0] Link 3][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU15 [0000:e7:00.0] Link 4][25.781 GB/s]..... Healthy
+Checking NVLink speed [GPU15 [0000:e7:00.0] Link 5][25.781 GB/s]..... Healthy
+Check BMC sensor thresholds for chassis [Serial: 1574719000010] ..... Healthy
+    Checked 209 sensor values against BMC thresholds.
+BMC Firmware Revision [1.09.00]
+BaseOS Version [6.2.0]
+BIOS Version [0.33]
+Linux kernel version [5.15.0-1053-nvidia]
+System Uptime [up 23 hours, 22 minutes]
+Serial Number [1574719000010]
+Chassis [1574719000010] Power Supply Info
+    [PSU0] Vendor[Delta] Model[ECD16010081] Serial[DTHTCD1915040] Firmware[03.01.03.01.03.01]
+    [PSU1] Vendor[Delta] Model[ECD16010081] Serial[DTHTCD191508H] Firmware[03.01.03.01.03.01]
+    [PSU2] Vendor[Delta] Model[ECD16010081] Serial[DTHTCD1915006] Firmware[03.01.03.01.03.01]
+    [PSU3] Vendor[Delta] Model[ECD16010081] Serial[DTHTCD1915064] Firmware[03.01.03.01.03.01]
+    [PSU4] Vendor[Delta] Model[ECD16010081] Serial[DTHTCD191501X] Firmware[03.01.03.01.03.01]
+    [PSU5] Vendor[Delta] Model[ECD16010081] Serial[DTHTCD191503W] Firmware[03.01.03.01.03.01]
+
+System Summary
+--------------
+    Product Name:NVIDIA DGX-2H
+    Manufacturer:NVIDIA
+    Serial Number:1574719000010
+    Uptime:up 23 hours, 22 minutes
+
+MotherBoard:
+    BIOS Version:0.33
+    Serial Number:55504B01000394604B
+
+BMC:
+    Firmware Version:1.09.00
+    IPMI Version:2.0
+
+GPU:
+    NVIDIA Driver Version:535.161.08
+    Product Name:Tesla V100-SXM3-32GB-H
+    VBIOS Version(s):88.00.6B.00.05
+
+Software:
+    BaseOS Version:6.2.0
+    Kernel Version:5.15.0-1053-nvidia
+    OS Version:Ubuntu 22.04.4 LTS (Jammy Jellyfish)
+
+Health Summary
+--------------
+
+199 out of 200 checks are healthy
+1 out of 200 checks are unhealthy
+0 out of 200 checks are unknown
+0 out of 200 checks are informational
+0 out of 200 checks are disabled
+0 out of 200 checks are skipped
+Overall system status is unhealthy
+
+Problem detected.
+
+
+1. Please run 'sudo nvsm dump health'
+2. Please open a case with NVIDIA Enterprise Support at this address https://nvid.nvidia.com/dashboard/
+3. Attach the log file from /tmp/nvsm-health-<hostname>-<timestamp>.tar.xz

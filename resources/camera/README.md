@@ -26,3 +26,38 @@ For the initial demo phase, this service runs in `demo-images` mode and emits pl
 - `/status`
 
 Default port: `8081`
+
+
+## Localized...
+
+### Build
+
+```bash
+limactl start
+lima nerdctl build -t camera-test -f resources/camera/Containerfile resources/camera
+```
+
+### Run
+
+```bash
+lima nerdctl run --rm -it \
+  -p 8081:8081 \
+  camera-test
+```
+
+...then launch `http://localhost:8081/status`
+
+For a quick health check:
+
+```bash
+curl http://localhost:8081/healthz
+curl http://localhost:8081/status
+```
+
+### Scrub-a-dub-dub...
+
+```bash
+lima nerdctl images
+lima nerdctl rmi camera-test
+```
+

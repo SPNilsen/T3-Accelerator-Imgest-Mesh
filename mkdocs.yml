@@ -1,0 +1,97 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+
+site_name: Imgest-Mesh
+repo_url: https://gitlab.com/dosayles/t3-imgest-mesh
+repo_name: dosayles/t3-imgest-mesh
+theme:
+  name: material
+  logo: assets/images/t3-logo-white-letters.png
+  favicon: assets/images/t3-favicon.png
+  palette:
+    primary: black
+    accent: violet
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.path
+  icon:
+    repo: fontawesome/brands/git-alt
+plugins:
+  - blog:
+      blog_dir: t3
+      post_date_format: short
+      archive: false
+      categories: false
+  - tags:
+      tags_file: t3/tags.md
+  - offline
+  - mermaid2
+  - charts:
+      vega_width: container
+      vega_renderer: svg
+  - mkdocs-pdf
+    #  - gallery:
+    #examples_dirs: docs/examples
+        #gallery_dirs: docs/generated/gallery
+  - search
+  - git-latest-changes:
+      limit_to_docs_dir: True  # [True|False], defaults to False
+      repo_vendor: gitlab  # [github|gitlab|gitea], defaults to `repo_name`
+      enabled_on_serve: False # [True|False], defaults to True
+      history_limit: 5  # [Integer, defaults to -1 (no history limit)]
+  - git-revision-date-localized:
+      exclude:
+        - t3/status.md
+          #- drawio_file
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.details
+  - pymdownx.snippets
+  - pymdownx.tilde
+  - pymdownx.superfences:
+        # make exceptions to highlighting of code:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom
+        - name: vegalite
+          class: vegalite
+          format: !!python/name:mkdocs_charts_plugin.fences.fence_vegalite
+  - pymdownx.emoji:
+    #emoji_index: !!python/name:material.extensions.emoji.twemoji
+    #emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+extra_css:
+  - https://unpkg.com/mermaid@7.1.2/dist/mermaid.css
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/vega@5
+  - https://cdn.jsdelivr.net/npm/vega-lite@5
+  - https://cdn.jsdelivr.net/npm/vega-embed@5
+  - https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs
+
+nav:
+  - 'Imgest-Mesh': 'index.md'
+  - 'Operational Challenges': 'challenges.md'
+  - 'CRISP-DM':
+    - 'Introduction': 'crisp-dm/index.md'
+    - 'Business Understanding': 'crisp-dm/business-understanding.md'
+    - 'Data Understanding': 'crisp-dm/data-understanding.md'
+    - 'Data Preparation': 'crisp-dm/data-preparation.md'
+    - 'Modeling': 'crisp-dm/modeling.md'
+    - 'Evaluation': 'crisp-dm/evaluation.md'
+    - 'Additional': 'crisp-dm/additional.md'
+    - 'Lessons Learned': 'crisp-dm/lessons-learned.md'
+  - 'Models': 'armor/models.md'
+  - 'Project Management':
+    - "Executive Overview": 't3/exec-overview.md'
+    - 'Activity Blog': 't3/index.md'
+    - 'Tags Index': 't3/tags.md'
+    - 'Kickoff': 't3/kickoff.md'
+  - 'Additional Materials':
+    - 'Filemap': 't3/filemap.md'
+    - 'F.A.Q.': 't3/faq.md'
+    - 'Glossary': 't3/glossary.md'
+    - '<tt>git</tt> Log': 't3/gitlog.md'

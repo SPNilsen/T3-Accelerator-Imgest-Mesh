@@ -1,0 +1,306 @@
+        {
+          "id": 10,
+          "phase": "Kickoff",
+          "task": "User Access (Remote VPN or other)",
+          "milestone": null,
+          "start": "03/02/2026",
+          "end": "03/04/2026",
+          "completion": 100,
+          "dependencies": null
+        },
+        {
+          "id": 12,
+          "phase": "Kickoff",
+          "task": "Collaboration Platform Setup (Slack / MS Teams / Email)",
+          "milestone": null,
+          "start": "03/02/2026",
+          "end": "03/03/2026",
+          "completion": 100,
+          "dependencies": null
+        },
+        {
+          "id": 14,
+          "phase": "Kickoff",
+          "task": "Documentation & Artifact Repository Setup (Confluence + GitHub/GitLab)",
+          "milestone": null,
+          "start": "03/03/2026",
+          "end": "03/04/2026",
+          "completion": 50,
+          "dependencies": 12
+        },
+        {
+          "id": 15,
+          "phase": "Kickoff",
+          "task": "Stakeholder Communication Plan (cadence: daily notes, weekly exec readouts, biweekly technical standups)",
+          "milestone": null,
+          "start": "03/04/2026",
+          "end": "03/06/2026",
+          "completion": 80,
+          "dependencies": 10
+        },
+        {
+          "id": 16,
+          "phase": "Kickoff",
+          "task": "Data Sources Inventory & Access Review (tool usage, failures, maintenance, replacement, inventory/bench stock)",
+          "milestone": null,
+          "start": "03/04/2026",
+          "end": "03/06/2026",
+          "completion": 20,
+          "dependencies": 10
+        },
+        {
+          "id": 17,
+          "phase": "Kickoff",
+          "task": "Deliverable: Project Scope Document",
+          "milestone": true,
+          "start": "03/06/2026",
+          "end": "03/06/2026",
+          "completion": 100,
+          "dependencies": 15
+        },
+        {
+          "id": 18,
+          "phase": "Kickoff",
+          "task": "Deliverable: Requirements Specification",
+          "milestone": true,
+          "start": "03/06/2026",
+          "end": "03/06/2026",
+          "completion": 50,
+          "dependencies": 15
+        },
+        {
+          "id": 20,
+          "phase": "Phase 1 — Reliability & Failure Modeling",
+          "task": "Review historical data: tool usage, failures, maintenance, and replacement",
+          "milestone": null,
+          "start": "03/09/2026",
+          "end": "03/11/2026",
+          "completion": 0,
+          "dependencies": 16
+        },
+        {
+          "id": 22,
+          "phase": "Phase 1 — Reliability & Failure Modeling",
+          "task": "Exploratory analysis: variability, outliers, and systemic patterns",
+          "milestone": null,
+          "start": "03/12/2026",
+          "end": "03/13/2026",
+          "completion": 0,
+          "dependencies": 20
+        },
+        {
+          "id": 24,
+          "phase": "Phase 1 — Reliability & Failure Modeling",
+          "task": "Fit reliability distributions (Weibull, lognormal, gamma) to tool lifetimes",
+          "milestone": null,
+          "start": "03/16/2026",
+          "end": "03/18/2026",
+          "completion": 0,
+          "dependencies": 22
+        },
+        {
+          "id": 26,
+          "phase": "Phase 1 — Reliability & Failure Modeling",
+          "task": "Identify failure modes: early-life, random, and wear-out behavior",
+          "milestone": null,
+          "start": "03/19/2026",
+          "end": "03/20/2026",
+          "completion": 0,
+          "dependencies": 24
+        },
+        {
+          "id": 28,
+          "phase": "Phase 1 — Reliability & Failure Modeling",
+          "task": "Quantify failure probabilities over time and operating conditions",
+          "milestone": null,
+          "start": "03/23/2026",
+          "end": "03/24/2026",
+          "completion": 0,
+          "dependencies": 26
+        },
+        {
+          "id": 30,
+          "phase": "Phase 1 — Reliability & Failure Modeling",
+          "task": "Monte Carlo scenario analysis to estimate cost exposure from failures",
+          "milestone": null,
+          "start": "03/25/2026",
+          "end": "03/26/2026",
+          "completion": 0,
+          "dependencies": 28
+        },
+
+        {
+          "id": 32,
+          "phase": "Phase 1 — Reliability & Failure Modeling",
+          "task": "Deliverable: Reliability model(s) for key tool classes",
+          "milestone": true,
+          "start": "03/27/2026",
+          "end": "03/27/2026",
+          "completion": 0,
+          "dependencies": 30
+        },
+        {
+          "id": 34,
+          "phase": "Phase 1 — Reliability & Failure Modeling",
+          "task": "Deliverable: Failure probability curves and risk windows",
+          "milestone": true,
+          "start": "03/27/2026",
+          "end": "03/27/2026",
+          "completion": 0,
+          "dependencies": 30
+        },
+        {
+          "id": 36,
+          "phase": "Phase 1 — Reliability & Failure Modeling",
+          "task": "Deliverable: Quantified cost exposure associated with tool failures",
+          "milestone": true,
+          "start": "03/27/2026",
+          "end": "03/27/2026",
+          "completion": 0,
+          "dependencies": 30
+        },
+        {
+          "id": 38,
+          "phase": "Phase 1 — Reliability & Failure Modeling",
+          "task": "Deliverable: Technical summary documenting assumptions, methodology, and findings",
+          "milestone": true,
+          "start": "03/27/2026",
+          "end": "03/27/2026",
+          "completion": 0,
+          "dependencies": 30
+        },
+        {
+          "id": 40,
+          "phase": "Phase 1 — Reliability & Failure Modeling",
+          "task": "Deliverable: Inputs prepared for downstream optimization modeling",
+          "milestone": true,
+          "start": "03/27/2026",
+          "end": "03/27/2026",
+          "completion": 0,
+          "dependencies": 30
+        },
+        {
+          "id": 42,
+          "phase": "Phase 2 — Inventory & Bench-Stock Optimization",
+          "task": "As-Is Stocking Policy Baseline (Stock Levels, Reorder Rules, Locations)",
+          "milestone": null,
+          "start": "03/30/2026",
+          "end": "04/03/2026",
+          "completion": 0,
+          "dependencies": 26
+        },
+        {
+          "id": 44,
+          "phase": "Phase 2 — Inventory & Bench-Stock Optimization",
+          "task": "Cost Structure Definition (Carrying, Scrap, Downtime, Expedites, Service Levels)",
+          "milestone": true,
+          "start": "04/06/2026",
+          "end": "04/06/2026",
+          "completion": 0,
+          "dependencies": 42
+        },
+        {
+          "id": 46,
+          "phase": "Phase 2 — Inventory & Bench-Stock Optimization",
+          "task": "Optimization Model Build (Safety Stock + Reorder Points + Constraints)",
+          "milestone": null,
+          "start": "04/07/2026",
+          "end": "04/13/2026",
+          "completion": 0,
+          "dependencies": 44
+        },
+        {
+          "id": 48,
+          "phase": "Phase 2 — Inventory & Bench-Stock Optimization",
+          "task": "Scenario Runs + Sensitivity (Lead Times, Risk Tolerance, Service Levels) + ROI",
+          "milestone": null,
+          "start": "04/14/2026",
+          "end": "04/17/2026",
+          "completion": 0,
+          "dependencies": 46
+        },
+        {
+          "id": 50,
+          "phase": "Phase 2 — Inventory & Bench-Stock Optimization",
+          "task": "Optimized Stock Policy + Scenarios + ROI Summary (Deliverable)",
+          "milestone": true,
+          "start": "04/17/2026",
+          "end": "04/17/2026",
+          "completion": 0,
+          "dependencies": 48
+        },
+        {
+          "id": 52,
+          "phase": "Phase 3 — Operationalization & Decision Enablement",
+          "task": "Decision Logic Design (Thresholds, Triggers, Cadence, Model Refresh)",
+          "milestone": null,
+          "start": "04/20/2026",
+          "end": "04/24/2026",
+          "completion": 0,
+          "dependencies": 50
+        },
+        {
+          "id": 54,
+          "phase": "Phase 3 — Operationalization & Decision Enablement",
+          "task": "Build Lightweight Decision Support Artifact (Planner-Ready Outputs)",
+          "milestone": null,
+          "start": "04/27/2026",
+          "end": "05/01/2026",
+          "completion": 0,
+          "dependencies": 52
+        },
+        {
+          "id": 56,
+          "phase": "Phase 3 — Operationalization & Decision Enablement",
+          "task": "Operating Procedures + Integration Guidance (ERP/CMMS) + KT Sessions",
+          "milestone": null,
+          "start": "05/04/2026",
+          "end": "05/08/2026",
+          "completion": 0,
+          "dependencies": 54
+        },
+        {
+          "id": 58,
+          "phase": "Phase 3 — Operationalization & Decision Enablement",
+          "task": "Operational Playbook + Final Technical Package (Deliverable)",
+          "milestone": true,
+          "start": "05/08/2026",
+          "end": "05/08/2026",
+          "completion": 0,
+          "dependencies": 56
+        },
+        {
+          "id": 60,
+          "phase": "Closeout",
+          "task": "Final Report Consolidation (All Phases) + Executive Summary",
+          "milestone": null,
+          "start": "05/11/2026",
+          "end": "05/13/2026",
+          "completion": 0,
+          "dependencies": 58
+        },
+        {
+          "id": 62,
+          "phase": "Closeout",
+          "task": "Stakeholder Presentation and Recommendations (Deliverable)",
+          "milestone": true,
+          "start": "05/14/2026",
+          "end": "05/14/2026",
+          "completion": 0,
+          "dependencies": 60
+        },
+        {
+          "id": 64,
+          "phase": "Closeout",
+          "task": "Project Closeout + Handoff",
+          "milestone": true,
+          "start": "05/15/2026",
+          "end": "05/15/2026",
+          "completion": 0,
+          "dependencies": 62
+        }
+
+
+
+
+

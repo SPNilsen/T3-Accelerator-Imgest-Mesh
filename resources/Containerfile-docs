@@ -1,0 +1,13 @@
+FROM squidfunk/mkdocs-material
+RUN pip install mkdocs-macros-plugin
+RUN pip install mkdocs-glightbox
+RUN pip install mkdocs-mermaid2-plugin
+RUN pip install mkdocs-charts-plugin
+RUN pip install mkdocs-pdf
+RUN pip install mkdocs-gallery
+RUN pip install mkdocs-git-latest-changes-plugin
+RUN pip install mkdocs-git-revision-date-localized-plugin
+RUN pip install mkdocs-drawio-file
+
+# this is for laters...
+#CMD python3 -m pip freeze > requirements.txt

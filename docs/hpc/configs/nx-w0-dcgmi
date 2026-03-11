@@ -1,0 +1,30 @@
+t3-service@nx-w0:~$ dcgmi diag -r 3 -p diagnostic.test_duration=30.0
+Successfully ran diagnostic for group.
++---------------------------+------------------------------------------------+
+| Diagnostic                | Result                                         |
++===========================+================================================+
+|-----  Metadata  ----------+------------------------------------------------|
+| DCGM Version              | 3.3.5                                          |
+| Driver Version Detected   | 535.161.08                                     |
+| GPU Device IDs Detected   | 1db8,1db8,1db8,1db8,1db8,1db8,1db8,1db8,1db... |
+|-----  Deployment  --------+------------------------------------------------|
+| Denylist                  | Pass                                           |
+| NVML Library              | Pass                                           |
+| CUDA Main Library         | Pass                                           |
+| Permissions and OS Blocks | Pass                                           |
+| Persistence Mode          | Pass                                           |
+| Environment Variables     | Pass                                           |
+| Page Retirement/Row Remap | Pass                                           |
+| Graphics Processes        | Pass                                           |
+| Inforom                   | Pass                                           |
++-----  Integration  -------+------------------------------------------------+
+| PCIe                      | Pass - All                                     |
++-----  Hardware  ----------+------------------------------------------------+
+| GPU Memory                | Pass - All                                     |
+| Diagnostic                | Pass - All                                     |
++-----  Stress  ------------+------------------------------------------------+
+| Targeted Stress           | Pass - All                                     |
+| Targeted Power            | Pass - All                                     |
+| Memory Bandwidth          | Pass - All                                     |
+| EUD Test                  | Skip - All                                     |
++---------------------------+------------------------------------------------+

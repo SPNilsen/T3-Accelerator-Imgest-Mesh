@@ -1,0 +1,565 @@
+t3-service@nx-w3:~$ sudo cat /var/nvsmlog/nvsm/StressTestLog2024-05-01T03:00:32Z.nvsmlog
+####################
+Test Name: GPU Stress Test
+Command ran: dcgmi diag -r diagnostic,pcie -i 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 -p diagnostic.test_duration=1200;echo **DELIMITER**;
+Command's stdout:
+Successfully ran diagnostic for group.
++---------------------------+------------------------------------------------+
+| Diagnostic                | Result                                         |
++===========================+================================================+
+|-----  Metadata  ----------+------------------------------------------------|
+| DCGM Version              | 3.3.5                                          |
+| Driver Version Detected   | 535.161.08                                     |
+| GPU Device IDs Detected   | 1db8,1db8,1db8,1db8,1db8,1db8,1db8,1db8,1db... |
+|-----  Deployment  --------+------------------------------------------------|
+| Denylist                  | Pass                                           |
+| NVML Library              | Pass                                           |
+| CUDA Main Library         | Pass                                           |
+| Permissions and OS Blocks | Pass                                           |
+| Persistence Mode          | Pass                                           |
+| Environment Variables     | Pass                                           |
+| Page Retirement/Row Remap | Pass                                           |
+| Graphics Processes        | Pass                                           |
+| Inforom                   | Pass                                           |
++-----  Integration  -------+------------------------------------------------+
+| PCIe                      | Fail - All                                     |
+| Warning                   | GPU 0 Error using CUDA API cudaDeviceGetByPCI  |
+|                           | BusId Check DCGM and system logs for errors.   |
+|                           | Reset GPU. Restart DCGM. Rerun diagnostics. '  |
+|                           | system not yet initialized' for GPU 0, bus ID  |
+|                           |  = 00000000:34:00.0                            |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
++-----  Hardware  ----------+------------------------------------------------+
+| Diagnostic                | Fail - All                                     |
+| Warning                   | GPU 0 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 0 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 0 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 0 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 0 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 1 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 1 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 1 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 1 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 1 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 2 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 2 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 2 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 2 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 2 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 3 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 3 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 3 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 3 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 3 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 4 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 4 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 4 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 4 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 4 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 5 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 5 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 5 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 5 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 5 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 6 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 6 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 6 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 6 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 6 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 7 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 7 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 7 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 7 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 7 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 8 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 8 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 8 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 8 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 8 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 9 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 9 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 9 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 9 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 9 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 10 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 10 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 10 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 10 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 10 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 11 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 11 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 11 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 11 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 11 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 12 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 12 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 12 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 12 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 12 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 13 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 13 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 13 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 13 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 13 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 14 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 14 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 14 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 14 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 14 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 15 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 15 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 15 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 15 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 15 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Info                      | GPU 0 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Info                      | GPU 1 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Info                      | GPU 2 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Info                      | GPU 3 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Info                      | GPU 4 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Info                      | GPU 5 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Info                      | GPU 6 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Info                      | GPU 7 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Info                      | GPU 8 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Info                      | GPU 9 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Info                      | GPU 10 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Info                      | GPU 11 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Info                      | GPU 12 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Info                      | GPU 13 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Info                      | GPU 14 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Info                      | GPU 15 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
++-----  Stress  ------------+------------------------------------------------+
++---------------------------+------------------------------------------------+
+**DELIMITER**
+
+Command's stderr:
+
+Test Result: Failed
+####################
+####################
+Test Name: Storage Stress Test
+Command ran: stress-ng -q -t 1200s --hdd 8 --hdd-bytes 8G --hdd-opts direct,sync,rd-rnd
+Command's stdout:
+
+Command's stderr:
+
+Test Result: PASS
+####################
+####################
+Test Name: CPU Stress Test
+Command ran: stress-ng -q -t 1200s --cpu -1 --cpu-method matrixprod
+Command's stdout:
+
+Command's stderr:
+
+Test Result: PASS
+####################
+####################
+Test Name: Memory Stress Test
+Command ran: stress-ng -q -t 1200s --vm 8 --vm-bytes 90% --vm-keep
+Command's stdout:
+
+Command's stderr:
+
+Test Result: PASS
+####################
+
+GPU            Failed
+CPU            PASS
+Memory         PASS
+Storage        PASS
+PCIe           Failed
+
+Component      PreTest        Min            Max            Avg            Unit
+GPU_TEMP       27.71          27.71          29.12          28.43          C
+CPU_TEMP       39.33          39.33          54.67          52.05          C
+MEM_TEMP       36.5           36.25          38.5           37.7           C
+POWERDRAW      3224           3068           3601           3340.07        W
+FANSPEED       8928.75        8920.67        11059          9886.96        RPM
+GPU_LOAD       0              0              0              0              %
+CPU_LOAD       89.09          0.78           104.86         90.03          %
+MEM_LOAD       32.98          0.92           89.26          77.35          %
+DISK_LOAD      12.63          0              58.43          37.27          %
+
+##########################################################################

@@ -1,0 +1,99 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Sample reliability CDF fit chart (Empirical vs Weibull / Lognormal / Gamma-Erlang).",
+  "width": 700,
+  "height": 360,
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {"hours": 48},
+          {"hours": 96},
+          {"hours": 140},
+          {"hours": 220},
+          {"hours": 360},
+          {"hours": 520},
+          {"hours": 780},
+          {"hours": 1100},
+          {"hours": 1600},
+          {"hours": 2400},
+          {"hours": 3600},
+          {"hours": 5200},
+          {"hours": 7600},
+          {"hours": 11000},
+          {"hours": 16000},
+          {"hours": 23000},
+          {"hours": 32000},
+          {"hours": 45000},
+          {"hours": 62000},
+          {"hours": 90000}
+        ]
+      },
+      "transform": [
+        {
+          "window": [
+            {"op": "rank", "as": "r"},
+            {"op": "count", "as": "n"}
+          ],
+          "sort": [{"field": "hours", "order": "ascending"}]
+        },
+        {"calculate": "datum.r / datum.n", "as": "cdf"},
+        {"calculate": "'Empirical CDF'", "as": "series"}
+      ],
+      "mark": {"type": "point", "filled": true, "size": 60},
+      "encoding": {
+        "x": {
+          "field": "hours",
+          "type": "quantitative",
+          "scale": {"type": "log"},
+          "axis": {"title": "Tool lifetime (hours, log scale)"}
+        },
+        "y": {
+          "field": "cdf",
+          "type": "quantitative",
+          "scale": {"domain": [0, 1]},
+          "axis": {"title": "Cumulative probability of failure (CDF)"}
+        },
+        "shape": {"field": "series", "type": "nominal"},
+        "tooltip": [
+          {"field": "hours", "type": "quantitative", "title": "Hours"},
+          {"field": "cdf", "type": "quantitative", "title": "Empirical CDF", "format": ".3f"}
+        ]
+      }
+    },
+    {
+      "data": {"sequence": {"start": 1.6, "stop": 5.2, "step": 0.04}},
+      "transform": [
+        {"calculate": "pow(10, datum.data)", "as": "hours"},
+
+        {"calculate": "1 - exp(-pow(datum.hours / 12000, 1.6))", "as": "weibull"},
+        {"calculate": "cumulativeLogNormal(datum.hours, 8.7, 0.75)", "as": "lognormal"},
+
+        {"calculate": "datum.hours / 6000", "as": "z"},
+        {
+          "calculate": "1 - exp(-datum.z) * (1 + datum.z + (pow(datum.z, 2) / 2))",
+          "as": "gamma"
+        },
+
+        {"fold": ["weibull", "lognormal", "gamma"], "as": ["model", "cdf"]},
+
+        {
+          "calculate": "datum.model == 'weibull' ? 'Weibull CDF (β=1.6, η=12000)' : datum.model == 'lognormal' ? 'Lognormal CDF (μ=8.7, σ=0.75)' : 'Gamma/Erlang CDF (k=3, θ=6000)'",
+          "as": "label"
+        }
+      ],
+      "mark": {"type": "line", "strokeWidth": 2},
+      "encoding": {
+        "x": {"field": "hours", "type": "quantitative", "scale": {"type": "log"}},
+        "y": {"field": "cdf", "type": "quantitative"},
+        "color": {"field": "label", "type": "nominal", "title": "Model fit"},
+        "tooltip": [
+          {"field": "label", "type": "nominal", "title": "Fit"},
+          {"field": "hours", "type": "quantitative", "title": "Hours"},
+          {"field": "cdf", "type": "quantitative", "title": "Model CDF", "format": ".3f"}
+        ]
+      }
+    }
+  ],
+  "resolve": {"scale": {"color": "independent", "shape": "independent"}}
+}

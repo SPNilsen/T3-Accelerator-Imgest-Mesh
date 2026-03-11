@@ -1,0 +1,1328 @@
+t3-service@nx-w3:~$ dcgmi diag -r 3 -p diagnostic.test_duration=30.0
+Successfully ran diagnostic for group.
++---------------------------+------------------------------------------------+
+| Diagnostic                | Result                                         |
++===========================+================================================+
+|-----  Metadata  ----------+------------------------------------------------|
+| DCGM Version              | 3.3.5                                          |
+| Driver Version Detected   | 535.161.08                                     |
+| GPU Device IDs Detected   | 1db8,1db8,1db8,1db8,1db8,1db8,1db8,1db8,1db... |
+|-----  Deployment  --------+------------------------------------------------|
+| Denylist                  | Pass                                           |
+| NVML Library              | Pass                                           |
+| CUDA Main Library         | Pass                                           |
+| Permissions and OS Blocks | Pass                                           |
+| Persistence Mode          | Pass                                           |
+| Environment Variables     | Pass                                           |
+| Page Retirement/Row Remap | Pass                                           |
+| Graphics Processes        | Pass                                           |
+| Inforom                   | Pass                                           |
++-----  Integration  -------+------------------------------------------------+
+| PCIe                      | Fail - All                                     |
+| Warning                   | GPU 0 Error using CUDA API cudaDeviceGetByPCI  |
+|                           | BusId Check DCGM and system logs for errors.   |
+|                           | Reset GPU. Restart DCGM. Rerun diagnostics. '  |
+|                           | system not yet initialized' for GPU 0, bus ID  |
+|                           |  = 00000000:34:00.0                            |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Warning                   | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
+| Info                      | @                                              |
++-----  Hardware  ----------+------------------------------------------------+
+| GPU Memory                | Fail - All                                     |
+| Warning                   | GPU 0 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 0 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 0 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 0 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 0 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 1 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 1 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 1 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 1 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 1 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 2 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 2 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 2 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 2 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 2 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 3 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 3 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 3 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 3 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 3 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 4 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 4 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 4 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 4 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 4 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 5 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 5 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 5 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 5 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 5 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 6 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 6 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 6 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 6 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 6 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 7 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 7 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 7 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 7 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 7 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 8 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 8 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 8 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 8 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 8 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 9 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 9 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 9 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 9 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 9 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Warning                   | GPU 10 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 10 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 10 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 10 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 10 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 11 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 11 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 11 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 11 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 11 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 12 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 12 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 12 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 12 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 12 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 13 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 13 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 13 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 13 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 13 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 14 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 14 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 14 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 14 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 14 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 15 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 15 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 15 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 15 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Warning                   | GPU 15 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Info                      | GPU 0 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Info                      | GPU 1 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Info                      | GPU 2 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Info                      | GPU 3 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Info                      | GPU 4 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Info                      | GPU 5 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Info                      | GPU 6 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Info                      | GPU 7 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Info                      | GPU 8 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Info                      | GPU 9 Error using CUDA API cuInit Check DCGM   |
+|                           | and system logs for errors. Reset GPU. Restar  |
+|                           | t DCGM. Rerun diagnostics. Unable to initiali  |
+|                           | ze CUDA library: 'system not yet initialized'  |
+|                           | . . Please check if a CUDA sample program can  |
+|                           |  be run successfully on this host. Refer to h  |
+|                           | ttps://github.com/nvidia/cuda-samples          |
+| Info                      | GPU 10 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Info                      | GPU 11 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Info                      | GPU 12 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Info                      | GPU 13 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Info                      | GPU 14 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Info                      | GPU 15 Error using CUDA API cuInit Check DCGM  |
+|                           |  and system logs for errors. Reset GPU. Resta  |
+|                           | rt DCGM. Rerun diagnostics. Unable to initial  |
+|                           | ize CUDA library: 'system not yet initialized  |
+|                           | '. . Please check if a CUDA sample program ca  |
+|                           | n be run successfully on this host. Refer to   |
+|                           | https://github.com/nvidia/cuda-samples         |
+| Diagnostic                | Fail - All                                     |
+| Warning                   | GPU 0 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 0 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 0 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 0 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 0 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 1 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 1 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 1 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 1 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 1 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 2 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 2 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 2 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 2 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 2 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 3 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 3 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 3 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 3 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 3 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 4 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 4 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 4 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 4 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 4 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 5 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 5 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 5 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 5 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 5 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 6 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 6 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 6 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 6 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 6 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 7 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 7 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 7 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 7 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 7 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 8 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 8 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 8 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 8 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 8 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 9 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 9 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 9 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 9 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 9 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Warning                   | GPU 10 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 10 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 10 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 10 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 10 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 11 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 11 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 11 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 11 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 11 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 12 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 12 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 12 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 12 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 12 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 13 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 13 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 13 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 13 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 13 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 14 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 14 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 14 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 14 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 14 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 15 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 15 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 15 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 15 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Warning                   | GPU 15 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Info                      | GPU 0 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Info                      | GPU 1 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Info                      | GPU 2 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Info                      | GPU 3 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Info                      | GPU 4 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Info                      | GPU 5 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Info                      | GPU 6 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Info                      | GPU 7 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Info                      | GPU 8 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Info                      | GPU 9 API call cudaDeviceGetByPCIBusId failed  |
+|                           | : 'system not yet initialized' Check DCGM and  |
+|                           |  system logs for errors. Reset GPU. Restart D  |
+|                           | CGM. Rerun diagnostics.                        |
+| Info                      | GPU 10 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Info                      | GPU 11 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Info                      | GPU 12 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Info                      | GPU 13 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Info                      | GPU 14 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
+| Info                      | GPU 15 API call cudaDeviceGetByPCIBusId faile  |
+|                           | d: 'system not yet initialized' Check DCGM an  |
+|                           | d system logs for errors. Reset GPU. Restart   |
+|                           | DCGM. Rerun diagnostics.                       |
++-----  Stress  ------------+------------------------------------------------+
+| Memory Bandwidth          | Fail - All                                     |
+| Warning                   | GPU 0 API call cuInit failed: 'system not yet  |
+|                           |  initialized. Please check if a CUDA sample p  |
+|                           | rogram can be run successfully on this host.   |
+|                           | Refer to https://github.com/nvidia/cuda-sampl  |
+|                           | es' Check DCGM and system logs for errors. Re  |
+|                           | set GPU. Restart DCGM. Rerun diagnostics. Ple  |
+|                           | ase check if a CUDA sample program can be run  |
+|                           |  successfully on this host. Refer to https://  |
+|                           | github.com/nvidia/cuda-samples                 |
+| Warning                   | GPU 1 API call cuInit failed: 'system not yet  |
+|                           |  initialized. Please check if a CUDA sample p  |
+|                           | rogram can be run successfully on this host.   |
+|                           | Refer to https://github.com/nvidia/cuda-sampl  |
+|                           | es' Check DCGM and system logs for errors. Re  |
+|                           | set GPU. Restart DCGM. Rerun diagnostics. Ple  |
+|                           | ase check if a CUDA sample program can be run  |
+|                           |  successfully on this host. Refer to https://  |
+|                           | github.com/nvidia/cuda-samples                 |
+| Warning                   | GPU 2 API call cuInit failed: 'system not yet  |
+|                           |  initialized. Please check if a CUDA sample p  |
+|                           | rogram can be run successfully on this host.   |
+|                           | Refer to https://github.com/nvidia/cuda-sampl  |
+|                           | es' Check DCGM and system logs for errors. Re  |
+|                           | set GPU. Restart DCGM. Rerun diagnostics. Ple  |
+|                           | ase check if a CUDA sample program can be run  |
+|                           |  successfully on this host. Refer to https://  |
+|                           | github.com/nvidia/cuda-samples                 |
+| Warning                   | GPU 3 API call cuInit failed: 'system not yet  |
+|                           |  initialized. Please check if a CUDA sample p  |
+|                           | rogram can be run successfully on this host.   |
+|                           | Refer to https://github.com/nvidia/cuda-sampl  |
+|                           | es' Check DCGM and system logs for errors. Re  |
+|                           | set GPU. Restart DCGM. Rerun diagnostics. Ple  |
+|                           | ase check if a CUDA sample program can be run  |
+|                           |  successfully on this host. Refer to https://  |
+|                           | github.com/nvidia/cuda-samples                 |
+| Warning                   | GPU 4 API call cuInit failed: 'system not yet  |
+|                           |  initialized. Please check if a CUDA sample p  |
+|                           | rogram can be run successfully on this host.   |
+|                           | Refer to https://github.com/nvidia/cuda-sampl  |
+|                           | es' Check DCGM and system logs for errors. Re  |
+|                           | set GPU. Restart DCGM. Rerun diagnostics. Ple  |
+|                           | ase check if a CUDA sample program can be run  |
+|                           |  successfully on this host. Refer to https://  |
+|                           | github.com/nvidia/cuda-samples                 |
+| Warning                   | GPU 5 API call cuInit failed: 'system not yet  |
+|                           |  initialized. Please check if a CUDA sample p  |
+|                           | rogram can be run successfully on this host.   |
+|                           | Refer to https://github.com/nvidia/cuda-sampl  |
+|                           | es' Check DCGM and system logs for errors. Re  |
+|                           | set GPU. Restart DCGM. Rerun diagnostics. Ple  |
+|                           | ase check if a CUDA sample program can be run  |
+|                           |  successfully on this host. Refer to https://  |
+|                           | github.com/nvidia/cuda-samples                 |
+| Warning                   | GPU 6 API call cuInit failed: 'system not yet  |
+|                           |  initialized. Please check if a CUDA sample p  |
+|                           | rogram can be run successfully on this host.   |
+|                           | Refer to https://github.com/nvidia/cuda-sampl  |
+|                           | es' Check DCGM and system logs for errors. Re  |
+|                           | set GPU. Restart DCGM. Rerun diagnostics. Ple  |
+|                           | ase check if a CUDA sample program can be run  |
+|                           |  successfully on this host. Refer to https://  |
+|                           | github.com/nvidia/cuda-samples                 |
+| Warning                   | GPU 7 API call cuInit failed: 'system not yet  |
+|                           |  initialized. Please check if a CUDA sample p  |
+|                           | rogram can be run successfully on this host.   |
+|                           | Refer to https://github.com/nvidia/cuda-sampl  |
+|                           | es' Check DCGM and system logs for errors. Re  |
+|                           | set GPU. Restart DCGM. Rerun diagnostics. Ple  |
+|                           | ase check if a CUDA sample program can be run  |
+|                           |  successfully on this host. Refer to https://  |
+|                           | github.com/nvidia/cuda-samples                 |
+| Warning                   | GPU 8 API call cuInit failed: 'system not yet  |
+|                           |  initialized. Please check if a CUDA sample p  |
+|                           | rogram can be run successfully on this host.   |
+|                           | Refer to https://github.com/nvidia/cuda-sampl  |
+|                           | es' Check DCGM and system logs for errors. Re  |
+|                           | set GPU. Restart DCGM. Rerun diagnostics. Ple  |
+|                           | ase check if a CUDA sample program can be run  |
+|                           |  successfully on this host. Refer to https://  |
+|                           | github.com/nvidia/cuda-samples                 |
+| Warning                   | GPU 9 API call cuInit failed: 'system not yet  |
+|                           |  initialized. Please check if a CUDA sample p  |
+|                           | rogram can be run successfully on this host.   |
+|                           | Refer to https://github.com/nvidia/cuda-sampl  |
+|                           | es' Check DCGM and system logs for errors. Re  |
+|                           | set GPU. Restart DCGM. Rerun diagnostics. Ple  |
+|                           | ase check if a CUDA sample program can be run  |
+|                           |  successfully on this host. Refer to https://  |
+|                           | github.com/nvidia/cuda-samples                 |
+| Warning                   | GPU 10 API call cuInit failed: 'system not ye  |
+|                           | t initialized. Please check if a CUDA sample   |
+|                           | program can be run successfully on this host.  |
+|                           |  Refer to https://github.com/nvidia/cuda-samp  |
+|                           | les' Check DCGM and system logs for errors. R  |
+|                           | eset GPU. Restart DCGM. Rerun diagnostics. Pl  |
+|                           | ease check if a CUDA sample program can be ru  |
+|                           | n successfully on this host. Refer to https:/  |
+|                           | /github.com/nvidia/cuda-samples                |
+| Warning                   | GPU 11 API call cuInit failed: 'system not ye  |
+|                           | t initialized. Please check if a CUDA sample   |
+|                           | program can be run successfully on this host.  |
+|                           |  Refer to https://github.com/nvidia/cuda-samp  |
+|                           | les' Check DCGM and system logs for errors. R  |
+|                           | eset GPU. Restart DCGM. Rerun diagnostics. Pl  |
+|                           | ease check if a CUDA sample program can be ru  |
+|                           | n successfully on this host. Refer to https:/  |
+|                           | /github.com/nvidia/cuda-samples                |
+| Warning                   | GPU 12 API call cuInit failed: 'system not ye  |
+|                           | t initialized. Please check if a CUDA sample   |
+|                           | program can be run successfully on this host.  |
+|                           |  Refer to https://github.com/nvidia/cuda-samp  |
+|                           | les' Check DCGM and system logs for errors. R  |
+|                           | eset GPU. Restart DCGM. Rerun diagnostics. Pl  |
+|                           | ease check if a CUDA sample program can be ru  |
+|                           | n successfully on this host. Refer to https:/  |
+|                           | /github.com/nvidia/cuda-samples                |
+| Warning                   | GPU 13 API call cuInit failed: 'system not ye  |
+|                           | t initialized. Please check if a CUDA sample   |
+|                           | program can be run successfully on this host.  |
+|                           |  Refer to https://github.com/nvidia/cuda-samp  |
+|                           | les' Check DCGM and system logs for errors. R  |
+|                           | eset GPU. Restart DCGM. Rerun diagnostics. Pl  |
+|                           | ease check if a CUDA sample program can be ru  |
+|                           | n successfully on this host. Refer to https:/  |
+|                           | /github.com/nvidia/cuda-samples                |
+| Warning                   | GPU 14 API call cuInit failed: 'system not ye  |
+|                           | t initialized. Please check if a CUDA sample   |
+|                           | program can be run successfully on this host.  |
+|                           |  Refer to https://github.com/nvidia/cuda-samp  |
+|                           | les' Check DCGM and system logs for errors. R  |
+|                           | eset GPU. Restart DCGM. Rerun diagnostics. Pl  |
+|                           | ease check if a CUDA sample program can be ru  |
+|                           | n successfully on this host. Refer to https:/  |
+|                           | /github.com/nvidia/cuda-samples                |
+| Warning                   | GPU 15 API call cuInit failed: 'system not ye  |
+|                           | t initialized. Please check if a CUDA sample   |
+|                           | program can be run successfully on this host.  |
+|                           |  Refer to https://github.com/nvidia/cuda-samp  |
+|                           | les' Check DCGM and system logs for errors. R  |
+|                           | eset GPU. Restart DCGM. Rerun diagnostics. Pl  |
+|                           | ease check if a CUDA sample program can be ru  |
+|                           | n successfully on this host. Refer to https:/  |
+|                           | /github.com/nvidia/cuda-samples                |
+| EUD Test                  | Skip - All                                     |
++---------------------------+------------------------------------------------+

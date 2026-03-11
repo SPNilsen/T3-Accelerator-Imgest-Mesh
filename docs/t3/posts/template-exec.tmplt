@@ -1,0 +1,37 @@
+---
+draft: false
+date: 2024-05-01
+tags:
+  - executive
+pin: true
+---
+
+# Executive Readout
+
+
+--8<-- "docs/t3/tracker.md"
+
+
+???+ info "Attendees"
+    | :material-checkbox-multiple-outline: | Client | :material-checkbox-multiple-outline: | Trace3 |
+    |-----|----------|-----|-----------|
+    | :material-checkbox-blank-outline: | | :material-checkbox-marked-outline: | D. Sayles |
+    | :material-checkbox-blank-outline: | | :material-checkbox-marked-outline: | T. Arland |
+
+
+???+ success "Accomplishments This Week / Upcoming Activites"
+    | Accomplishments This Week | | Key Upcoming Planned Activities |
+    |---|---|---|
+    | - Cluster wrap | | - Documentation<br>- `run:ai` Training<br>- Use case ideation<br>- Use case onboarding |
+
+
+???+ warning "Key Decisions Needed / Outstanding"
+    | Key Decisions Needed | | Action Items Outstanding | Owner |
+    |---|---|---|---|
+    | None at this time | | | |
+
+???+ danger "Key Risks and Issues"
+    | ID | Owner | Description | Mitigation | Status |
+    |---|---|---|---|---|
+    | None at this time |||||
+

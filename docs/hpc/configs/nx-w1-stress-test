@@ -1,0 +1,36 @@
+t3-service@nx-w1:~$ sudo nvsm stress-test --no-prompt --force
+############################## NVSM STRESS ##############################
+
+Stressing GPU : Multiplying matrices on GPUs
+Stressing CPU : Multiplying matrices on CPUs
+Stressing Memory : Mapping pages into memory
+Stressing Storage : Performing disk I/O operations
+
+    Fetching stream progress from backend...
+
+    100% Complete...
+
+
+
+GPU            Failed
+CPU            PASS
+Memory         PASS
+Storage        PASS
+PCIe           Failed
+
+Component      PreTest        Min            Max            Avg            Unit
+
+GPU_TEMP       27.94          27.94          31             29.69          C
+CPU_TEMP       22.67          22.67          57.33          53.26          C
+MEM_TEMP       38             38             43.75          41.29          C
+POWERDRAW      3393           3393           4446           4127.5         W
+FANSPEED       10177.92       10177.92       13052.67       12521.98       RPM
+GPU_LOAD       0              0              0              0              %
+CPU_LOAD       87.67          2.2            104.43         85.92          %
+MEM_LOAD       34.46          0.84           88.98          75.43          %
+DISK_LOAD      15.03          0              84.32          50.85          %
+
+Stress Test Log:/var/nvsmlog/nvsm/StressTestLog2024-05-01T03:00:33Z.nvsmlog
+
+
+##########################################################################

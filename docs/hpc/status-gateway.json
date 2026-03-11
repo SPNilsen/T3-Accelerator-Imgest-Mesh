@@ -1,0 +1,30 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Bump chart",
+  "data": {
+    "values": [
+      {"scan": 1, "health": "NORMAL"},
+      {"scan": 2, "health": "NORMAL"},
+      {"scan": 3, "health": "NORMAL"},
+      {"scan": 4, "health": "NORMAL"},
+      {"scan": 5, "health": "WARNING"},
+      {"scan": 6, "health": "NORMAL"},
+      {"scan": 7, "health": "NORMAL"},
+      {"scan": 8, "health": "NORMAL"},
+      {"scan": 9, "health": "NORMAL"},
+      {"scan": 10, "health": "NORMAL"},
+      {"scan": 11, "health": "WARNING"},
+      {"scan": 12, "health": "NORMAL"},
+      {"scan": 13, "health": "NORMAL"},
+      {"scan": 14, "health": "NORMAL"},
+      {"scan": 15, "health": "NORMAL"},
+      {"scan": 16, "health": "WARNING"}
+    ]
+  },
+  "mark": {"type": "line", "point": true},
+  "encoding": {
+    "x": {"field": "scan", "type": "quantitative"},
+    "y": {"field": "health", "type": "nominal"},
+    "order": {"field": "scan", "type": "quantitative"}
+  }
+}

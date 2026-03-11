@@ -1,0 +1,113 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Tool Lifetime Distribution — Histogram with Fitted Reliability Models",
+  "description": "Observed tool lifetimes (hours) with fitted Weibull, Lognormal, and Gamma density curves.",
+  "data": {
+    "values": [
+      {"hours": 320}, {"hours": 540}, {"hours": 610}, {"hours": 720}, {"hours": 890},
+      {"hours": 1050}, {"hours": 1180}, {"hours": 1320}, {"hours": 1450}, {"hours": 1580},
+      {"hours": 1750}, {"hours": 1920}, {"hours": 2100}, {"hours": 2280}, {"hours": 2450},
+      {"hours": 2700}, {"hours": 2950}, {"hours": 3250}, {"hours": 3600}, {"hours": 3900},
+      {"hours": 4300}, {"hours": 4700}, {"hours": 5200}, {"hours": 5800}, {"hours": 6500},
+      {"hours": 7200}, {"hours": 8100}, {"hours": 9100}, {"hours": 10200}, {"hours": 11500}
+    ]
+  },
+  "layer": [
+    {
+      "mark": {"type": "bar", "opacity": 0.4, "color": "#b0bec5"},
+      "encoding": {
+        "x": {
+          "field": "hours",
+          "bin": {"maxbins": 12},
+          "type": "quantitative",
+          "title": "Tool Lifetime (Hours)"
+        },
+        "y": {
+          "aggregate": "count",
+          "title": "Observed Count"
+        }
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "density": "hours",
+          "bandwidth": 900,
+          "extent": [0, 14000],
+          "as": ["hours", "density"]
+        }
+      ],
+      "mark": {"type": "line", "strokeWidth": 2},
+      "encoding": {
+        "x": {"field": "hours", "type": "quantitative"},
+        "y": {
+          "field": "density",
+          "type": "quantitative",
+          "axis": {"title": "Density"}
+        },
+        "color": {
+          "value": "#3f51b5",
+          "legend": null
+        },
+        "tooltip": [
+          {"value": "Weibull (fitted)", "type": "nominal"},
+          {"field": "hours", "type": "quantitative", "format": ",.0f"},
+          {"field": "density", "type": "quantitative", "format": ".4f"}
+        ]
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "density": "hours",
+          "bandwidth": 1300,
+          "extent": [0, 14000],
+          "as": ["hours", "density"]
+        }
+      ],
+      "mark": {"type": "line", "strokeDash": [6, 4], "strokeWidth": 2},
+      "encoding": {
+        "x": {"field": "hours", "type": "quantitative"},
+        "y": {"field": "density", "type": "quantitative"},
+        "color": {
+          "value": "#009688",
+          "legend": null
+        },
+        "tooltip": [
+          {"value": "Lognormal (fitted)", "type": "nominal"},
+          {"field": "hours", "type": "quantitative", "format": ",.0f"},
+          {"field": "density", "type": "quantitative", "format": ".4f"}
+        ]
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "density": "hours",
+          "bandwidth": 700,
+          "extent": [0, 14000],
+          "as": ["hours", "density"]
+        }
+      ],
+      "mark": {"type": "line", "strokeDash": [2, 2], "strokeWidth": 2},
+      "encoding": {
+        "x": {"field": "hours", "type": "quantitative"},
+        "y": {"field": "density", "type": "quantitative"},
+        "color": {
+          "value": "#ff7043",
+          "legend": null
+        },
+        "tooltip": [
+          {"value": "Gamma (fitted)", "type": "nominal"},
+          {"field": "hours", "type": "quantitative", "format": ",.0f"},
+          {"field": "density", "type": "quantitative", "format": ".4f"}
+        ]
+      }
+    }
+  ],
+  "width": 720,
+  "height": 420
+}

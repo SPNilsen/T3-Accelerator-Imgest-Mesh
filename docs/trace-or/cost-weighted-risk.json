@@ -1,0 +1,109 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Expected Cost Exposure Over Time — Cost-Weighted Failure Risk",
+  "width": 700,
+  "height": 320,
+  "data": {
+    "values": [
+      {"t_hours": 100,   "model": "Weibull (β>1 wear-out)",   "loss_rate_per_1000h": 20},
+      {"t_hours": 500,   "model": "Weibull (β>1 wear-out)",   "loss_rate_per_1000h": 35},
+      {"t_hours": 1000,  "model": "Weibull (β>1 wear-out)",   "loss_rate_per_1000h": 55},
+      {"t_hours": 2000,  "model": "Weibull (β>1 wear-out)",   "loss_rate_per_1000h": 85},
+      {"t_hours": 4000,  "model": "Weibull (β>1 wear-out)",   "loss_rate_per_1000h": 140},
+      {"t_hours": 8000,  "model": "Weibull (β>1 wear-out)",   "loss_rate_per_1000h": 240},
+      {"t_hours": 16000, "model": "Weibull (β>1 wear-out)",   "loss_rate_per_1000h": 420},
+      {"t_hours": 32000, "model": "Weibull (β>1 wear-out)",   "loss_rate_per_1000h": 760},
+      {"t_hours": 60000, "model": "Weibull (β>1 wear-out)",   "loss_rate_per_1000h": 1300},
+
+      {"t_hours": 100,   "model": "Lognormal (long tail)",    "loss_rate_per_1000h": 28},
+      {"t_hours": 500,   "model": "Lognormal (long tail)",    "loss_rate_per_1000h": 45},
+      {"t_hours": 1000,  "model": "Lognormal (long tail)",    "loss_rate_per_1000h": 62},
+      {"t_hours": 2000,  "model": "Lognormal (long tail)",    "loss_rate_per_1000h": 78},
+      {"t_hours": 4000,  "model": "Lognormal (long tail)",    "loss_rate_per_1000h": 95},
+      {"t_hours": 8000,  "model": "Lognormal (long tail)",    "loss_rate_per_1000h": 120},
+      {"t_hours": 16000, "model": "Lognormal (long tail)",    "loss_rate_per_1000h": 165},
+      {"t_hours": 32000, "model": "Lognormal (long tail)",    "loss_rate_per_1000h": 240},
+      {"t_hours": 60000, "model": "Lognormal (long tail)",    "loss_rate_per_1000h": 360},
+
+      {"t_hours": 100,   "model": "Gamma/Erlang (staged)",    "loss_rate_per_1000h": 10},
+      {"t_hours": 500,   "model": "Gamma/Erlang (staged)",    "loss_rate_per_1000h": 18},
+      {"t_hours": 1000,  "model": "Gamma/Erlang (staged)",    "loss_rate_per_1000h": 28},
+      {"t_hours": 2000,  "model": "Gamma/Erlang (staged)",    "loss_rate_per_1000h": 44},
+      {"t_hours": 4000,  "model": "Gamma/Erlang (staged)",    "loss_rate_per_1000h": 70},
+      {"t_hours": 8000,  "model": "Gamma/Erlang (staged)",    "loss_rate_per_1000h": 115},
+      {"t_hours": 16000, "model": "Gamma/Erlang (staged)",    "loss_rate_per_1000h": 190},
+      {"t_hours": 32000, "model": "Gamma/Erlang (staged)",    "loss_rate_per_1000h": 315},
+      {"t_hours": 60000, "model": "Gamma/Erlang (staged)",    "loss_rate_per_1000h": 520}
+    ]
+  },
+  "transform": [
+    {
+      "window": [
+        {
+          "op": "sum",
+          "field": "loss_rate_per_1000h",
+          "as": "cum_loss_per_1000h"
+        }
+      ],
+      "groupby": ["model"],
+      "sort": [{"field": "t_hours", "order": "ascending"}],
+      "frame": [null, 0]
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "line", "strokeWidth": 2},
+      "encoding": {
+        "x": {
+          "field": "t_hours",
+          "type": "quantitative",
+          "scale": {"type": "log"},
+          "axis": {"title": "Time in Service (hours, log scale)"}
+        },
+        "y": {
+          "field": "loss_rate_per_1000h",
+          "type": "quantitative",
+          "axis": {"title": "Expected Loss Rate ($ per 1,000 hours)"}
+        },
+        "color": {"field": "model", "type": "nominal", "title": "Model"},
+        "tooltip": [
+          {"field": "model", "type": "nominal", "title": "Model"},
+          {"field": "t_hours", "type": "quantitative", "title": "Hours", "format": ",.0f"},
+          {
+            "field": "loss_rate_per_1000h",
+            "type": "quantitative",
+            "title": "Loss rate ($/1k h)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {"type": "line", "strokeWidth": 2, "strokeDash": [6, 4]},
+      "encoding": {
+        "x": {"field": "t_hours", "type": "quantitative", "scale": {"type": "log"}},
+        "y": {
+          "field": "cum_loss_per_1000h",
+          "type": "quantitative",
+          "axis": {"title": "Cumulative Cost Index (sum of $/1k h points)"}
+        },
+        "color": {"field": "model", "type": "nominal"},
+        "tooltip": [
+          {"field": "model", "type": "nominal", "title": "Model"},
+          {"field": "t_hours", "type": "quantitative", "title": "Hours", "format": ",.0f"},
+          {
+            "field": "cum_loss_per_1000h",
+            "type": "quantitative",
+            "title": "Cumulative cost index",
+            "format": ",.0f"
+          }
+        ]
+      }
+    }
+  ],
+  "resolve": {"scale": {"y": "independent"}},
+  "config": {
+    "axis": {"labelFontSize": 11, "titleFontSize": 12},
+    "legend": {"labelFontSize": 11, "titleFontSize": 12}
+  }
+}

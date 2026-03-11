@@ -1,0 +1,275 @@
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4); /* Start with no shadow */
+    }
+    70% {
+        box-shadow: 0 0 0 12px rgba(255, 0, 0, 0); /* Expand shadow and fade */
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); /* End with no shadow */
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* 1) Make the chart area horizontally scrollable */
+vegachart.vega-embed {
+  display: block;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+
+/* 2) Prevent the SVG from being scaled down to fit the container */
+vegachart.vega-embed > svg {
+  max-width: none !important;
+  width: auto !important;        /* let the intrinsic SVG width win */
+  height: auto;
+  display: block;
+}
+
+.md-content vegachart.vega-embed > svg {
+  max-width: none !important;
+}
+
+.tracker-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align circles horizontally */
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 90%;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.tracker-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    flex: 1;
+}
+
+.tracker-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 24px); /* Line bisects the circles */
+    left: 50%; /* Start at the center of the current circle */
+    width: 100%; /* Extend to the next circle */
+    height: 4px; /* Line thickness */
+    background-color: #ddd; /* Default line color */
+    z-index: 0; /* Place the line behind the circles */
+}
+
+.tracker-item.completed:not(:last-child)::after {
+    background-color: #3f51b5; /* Violet color for completed steps */
+}
+
+.circle {
+    width: 37.5px; /* Circle size */
+    height: 37.5px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    z-index: 1; /* Keep circles above the line */
+    margin-bottom: 10px; /* Space below the circle */
+}
+
+/* Checkmark badge for completed items (keeps the phase icon) */
+.tracker-item.completed .circle {
+  position: relative; /* enables absolute positioning of the badge */
+}
+
+/* the badge itself */
+.tracker-item.completed .circle::after {
+  content: "✓";
+  position: absolute;
+  top: -6px;
+  right: -6px;
+
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  background: #3f51b5; /* match your violet */
+  color: #fff;
+
+  border: 2px solid #fff; /* clean separation from circle */
+  box-sizing: border-box;
+}
+
+.tracker-item.completed .circle {
+    border-color: #3f51b5; /* Violet border */
+    background-color: #3f51b5; /* Violet background */
+    color: white;
+}
+
+.tracker-item.active .circle {
+    border: 2px solid red; /* Red border */
+    background-color: white;
+    position: relative;
+    color: red; /* Red icon color */
+    animation: pulse 2s infinite; /* Apply concentric ring animation */
+}
+
+.tracker-item.active .circle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 2s infinite; /* Animate concentric rings */
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4); /* Pulse effect */
+    z-index: -1; /* Behind the circle */
+}
+
+.label {
+    min-height: 40px; /* Ensure a consistent height for all labels */
+    display: flex;
+    flex-direction: column; /* Stack text vertically */
+    align-items: center;
+    justify-content: flex-start; /* Align all text to the top */
+    text-align: center;
+}
+
+.label .first-line {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    line-height: 1.4;
+    margin-bottom: 4px; /* Space between the first and second line */
+}
+
+.label .second-line {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+}
+
+.tracker-item.completed .label .first-line,
+.tracker-item.completed .label .second-line {
+    color: #3f51b5; /* Violet text for completed steps */
+}
+
+.tracker-item.active .label .first-line,
+.tracker-item.active .label .second-line {
+    color: #3f51b5; /* Violet text for active step */
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+    .tracker-container {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the left */
+        padding: 10px;
+    }
+
+    .tracker-item {
+        flex-direction: row; /* Align circle and text side by side */
+        align-items: center; /* Align items vertically */
+        margin-bottom: 30px; /* Space between rows */
+    }
+
+    .tracker-item:not(:last-child)::after {
+        top: 50%; /* Align the line with the center of the circle */
+        left: calc(18.75px + 2px); /* Center the line in the middle of the circle */
+        transform: translateX(-50%);
+        width: 4px; /* Vertical line width */
+        height: calc(30px + 37.5px); /* Adjust height dynamically */
+        background-color: #ddd; /* Default line color */
+    }
+
+    .tracker-item.completed:not(:last-child)::after {
+        background-color: #3f51b5; /* Violet color for completed steps */
+    }
+
+    .circle {
+        margin-bottom: 0; /* Remove bottom margin for side-by-side layout */
+        margin-right: 15px; /* Add spacing between circle and text */
+    }
+
+    .label {
+        align-items: flex-start; /* Align text to the left of the container */
+        text-align: left; /* Align text to the left */
+    }
+}
+
+@media print {
+    .tracker-container {
+        display: flex; /* Horizontal layout */
+        flex-direction: row; /* Ensure items remain side by side */
+        justify-content: space-between; /* Evenly distribute items */
+        align-items: center; /* Align items vertically */
+    }
+
+    .tracker-item {
+        display: flex;
+        flex-direction: column; /* Stack circle and label vertically */
+        align-items: center; /* Center-align contents */
+        position: relative; /* Enable relative positioning for pseudo-elements */
+        flex: 1; /* Evenly distribute items */
+    }
+
+    .tracker-item:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 22%; /* Center the line vertically with the circle */
+        left: 35%; /* Start at the center of the current circle */
+        transform: translateY(-50%) translateX(50%); /* Center both vertically and horizontally */
+        width: calc(100% - 37.5px); /* Adjust the line width dynamically */
+        height: 4px; /* Line thickness */
+        background-color: #ddd; /* Default line color */
+        z-index: 0; /* Ensure the line appears behind the circle */
+    }
+
+    .tracker-item.completed:not(:last-child)::after {
+        background-color: #3f51b5; /* Violet color for completed steps */
+    }
+
+    .circle {
+        width: 37.5px; /* Fixed circle size */
+        height: 37.5px;
+        border-radius: 50%; /* Ensure circular shape */
+        border: 2px solid #ddd; /* Default border color */
+        background-color: white;
+        display: flex; /* Center content within the circle */
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px; /* Space below the circle for the label */
+        z-index: 1; /* Ensure circles are above lines */
+    }
+
+    .label {
+        margin-top: 10px; /* Space below the circle for the label */
+        text-align: center; /* Center-align label text */
+    }
+
+    body {
+        background-color: white; /* White background for print */
+        color: black; /* Black text for readability */
+    }
+}
+

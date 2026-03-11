@@ -1,0 +1,186 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Sample: tool lifetime in hours with fitted reliability distribution PDFs (Weibull, Lognormal, Gamma/Erlang).",
+  "width": 650,
+  "height": 320,
+  "data": {
+    "values": [
+      { "hours": 13613 },
+      { "hours": 6906 },
+      { "hours": 11310 },
+      { "hours": 15986 },
+      { "hours": 7788 },
+      { "hours": 2473 },
+      { "hours": 6361 },
+      { "hours": 10940 },
+      { "hours": 5433 },
+      { "hours": 6773 },
+      { "hours": 20404 },
+      { "hours": 11849 },
+      { "hours": 2384 },
+      { "hours": 7060 },
+      { "hours": 4529 },
+      { "hours": 11771 },
+      { "hours": 6883 },
+      { "hours": 23554 },
+      { "hours": 8659 },
+      { "hours": 17973 },
+      { "hours": 4622 },
+      { "hours": 13156 },
+      { "hours": 7683 },
+      { "hours": 20566 },
+      { "hours": 6970 },
+      { "hours": 5525 },
+      { "hours": 17926 },
+      { "hours": 10417 },
+      { "hours": 3471 },
+      { "hours": 21338 },
+      { "hours": 16873 },
+      { "hours": 19749 },
+      { "hours": 21555 },
+      { "hours": 12791 },
+      { "hours": 11473 },
+      { "hours": 14623 },
+      { "hours": 7969 },
+      { "hours": 24647 },
+      { "hours": 12144 },
+      { "hours": 19674 },
+      { "hours": 29325 },
+      { "hours": 3544 },
+      { "hours": 17175 },
+      { "hours": 3444 },
+      { "hours": 4511 },
+      { "hours": 11648 },
+      { "hours": 10594 },
+      { "hours": 8828 },
+      { "hours": 10649 },
+      { "hours": 11026 },
+      { "hours": 12418 },
+      { "hours": 3091 },
+      { "hours": 14003 },
+      { "hours": 9460 },
+      { "hours": 9315 },
+      { "hours": 13430 },
+      { "hours": 6910 },
+      { "hours": 11858 },
+      { "hours": 12833 },
+      { "hours": 14078 },
+      { "hours": 10499 },
+      { "hours": 13070 },
+      { "hours": 12304 },
+      { "hours": 9520 },
+      { "hours": 7988 },
+      { "hours": 16861 },
+      { "hours": 25634 },
+      { "hours": 6401 },
+      { "hours": 21312 },
+      { "hours": 5407 },
+      { "hours": 10961 },
+      { "hours": 20739 },
+      { "hours": 60683 },
+      { "hours": 34057 },
+      { "hours": 39130 },
+      { "hours": 24586 },
+      { "hours": 26298 },
+      { "hours": 18439 },
+      { "hours": 49232 },
+      { "hours": 35113 },
+      { "hours": 48672 },
+      { "hours": 17951 },
+      { "hours": 25983 },
+      { "hours": 13298 },
+      { "hours": 23783 },
+      { "hours": 15384 },
+      { "hours": 12374 },
+      { "hours": 24506 }
+    ]
+  },
+  "layer": [
+    {
+      "transform": [
+        { "bin": { "maxbins": 25 }, "field": "hours", "as": ["bin_start", "bin_end"] },
+        { "aggregate": [{ "op": "count", "as": "count" }], "groupby": ["bin_start", "bin_end"] },
+        { "calculate": "datum.bin_end - datum.bin_start", "as": "bin_width" },
+        { "calculate": "datum.count / (90 * datum.bin_width)", "as": "density" }
+      ],
+      "mark": { "type": "bar", "opacity": 0.35 },
+      "encoding": {
+        "x": { "field": "bin_start", "type": "quantitative", "title": "Tool lifetime (hours)", "axis": { "format": ",.0f" } },
+        "x2": { "field": "bin_end" },
+        "y": { "field": "density", "type": "quantitative", "title": "Density" },
+        "tooltip": [
+          { "field": "bin_start", "type": "quantitative", "title": "From (hrs)", "format": ",.0f" },
+          { "field": "bin_end", "type": "quantitative", "title": "To (hrs)", "format": ",.0f" },
+          { "field": "count", "type": "quantitative", "title": "Count" },
+          { "field": "density", "type": "quantitative", "title": "Density", "format": ".3e" }
+        ]
+      }
+    },
+    {
+      "data": { "sequence": { "start": 100, "stop": 60000, "step": 200 } },
+      "transform": [
+        { "calculate": "datum.data", "as": "t" },
+        { "calculate": "(1.7/12000)*pow(datum.t/12000,0.7)*exp(-pow(datum.t/12000,1.7))", "as": "pdf" },
+        { "calculate": "'Weibull PDF (β=1.7, η=12000)'", "as": "model" }
+      ],
+      "mark": { "type": "line", "strokeWidth": 2 },
+      "encoding": {
+        "x": { "field": "t", "type": "quantitative" },
+        "y": { "field": "pdf", "type": "quantitative" },
+        "detail": { "field": "model" },
+        "tooltip": [
+          { "field": "model", "type": "nominal", "title": "Model" },
+          { "field": "t", "type": "quantitative", "title": "Hours", "format": ",.0f" },
+          { "field": "pdf", "type": "quantitative", "title": "Density", "format": ".3e" }
+        ]
+      }
+    },
+    {
+      "data": { "sequence": { "start": 100, "stop": 60000, "step": 200 } },
+      "transform": [
+        { "calculate": "datum.data", "as": "t" },
+        { "calculate": "(1/(datum.t*0.55*2.50662827463))*exp(-pow(log(datum.t)-8.8,2)/(2*pow(0.55,2)))", "as": "pdf" },
+        { "calculate": "'Lognormal PDF (μ=8.8, σ=0.55)'", "as": "model" }
+      ],
+      "mark": { "type": "line", "strokeDash": [6, 4], "strokeWidth": 2 },
+      "encoding": {
+        "x": { "field": "t", "type": "quantitative" },
+        "y": { "field": "pdf", "type": "quantitative" },
+        "detail": { "field": "model" },
+        "tooltip": [
+          { "field": "model", "type": "nominal", "title": "Model" },
+          { "field": "t", "type": "quantitative", "title": "Hours", "format": ",.0f" },
+          { "field": "pdf", "type": "quantitative", "title": "Density", "format": ".3e" }
+        ]
+      }
+    },
+    {
+      "data": { "sequence": { "start": 100, "stop": 60000, "step": 200 } },
+      "transform": [
+        { "calculate": "datum.data", "as": "t" },
+        { "calculate": "(pow(datum.t,2)*exp(-datum.t/4000))/(pow(4000,3)*2)", "as": "pdf" },
+        { "calculate": "'Gamma/Erlang PDF (k=3, θ=4000)'", "as": "model" }
+      ],
+      "mark": { "type": "line", "strokeDash": [2, 2], "strokeWidth": 2 },
+      "encoding": {
+        "x": { "field": "t", "type": "quantitative" },
+        "y": { "field": "pdf", "type": "quantitative" },
+        "detail": { "field": "model" },
+        "tooltip": [
+          { "field": "model", "type": "nominal", "title": "Model" },
+          { "field": "t", "type": "quantitative", "title": "Hours", "format": ",.0f" },
+          { "field": "pdf", "type": "quantitative", "title": "Density", "format": ".3e" }
+        ]
+      }
+    },
+    {
+      "mark": { "type": "tick", "thickness": 1, "size": 10, "opacity": 0.6 },
+      "encoding": {
+        "x": { "field": "hours", "type": "quantitative" },
+        "y": { "value": 0 },
+        "tooltip": [{ "field": "hours", "type": "quantitative", "title": "Observed lifetime (hrs)", "format": ",.0f" }]
+      }
+    }
+  ],
+  "config": { "axis": { "labelFontSize": 11, "titleFontSize": 12 } }
+}
