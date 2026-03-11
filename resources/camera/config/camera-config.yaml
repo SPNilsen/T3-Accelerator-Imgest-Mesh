@@ -1,0 +1,14 @@
+service_name: camera
+mode: demo-images
+
+status:
+  host: 0.0.0.0
+  port: 8081
+
+capture:
+  interval_seconds: 2
+  max_frames: 0   # 0 means run continuously
+
+output:
+  directory: /opt/camera/output
+  filename_prefix: frame
