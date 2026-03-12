@@ -31,6 +31,7 @@ body {
     padding-top:0;
 }
 
+/* base gray line */
 .pipeline::before {
     content:'';
     position:absolute;
@@ -43,6 +44,7 @@ body {
     z-index:0;
 }
 
+/* purple progress overlay */
 .pipeline-progress {
     position:absolute;
     left:0;
@@ -127,7 +129,7 @@ body {
 
 <div class="step starting" id="orchestrator-step">
     <div class="circle">
-        <i class="fa-solid fa-layer-group"></i>
+        <i class="fa-solid fa-cube"></i>
     </div>
     <div class="label">Orchestrator</div>
     <div class="status-text" id="orchestrator-status-text">Checking...</div>
@@ -138,7 +140,6 @@ body {
         <i class="fa-solid fa-cubes"></i>
     </div>
     <div class="label">Inference</div>
-    <div class="status-text" id="inference-status-text">Checking...</div>
 </div>
 
 <div class="step starting" id="systemmgr-step">
@@ -158,8 +159,6 @@ body {
 </div>
 
 <script>
-const STATUS_REFRESH_MS = 10000;
-
 function updatePipelineProgress(activeStepId) {
     const pipeline = document.querySelector(".pipeline");
     const progress = document.getElementById("pipeline-progress");
@@ -180,14 +179,10 @@ function resetPipelineProgress() {
 }
 
 function refreshPipelineProgress() {
-    if (document.getElementById("inference-step").classList.contains("up")) {
-        updatePipelineProgress("inference-step");
-    } else if (document.getElementById("orchestrator-step").classList.contains("up")) {
+    if (document.getElementById("orchestrator-step").classList.contains("up")) {
         updatePipelineProgress("orchestrator-step");
     } else if (document.getElementById("camera-step").classList.contains("up")) {
         updatePipelineProgress("camera-step");
-    } else if (document.getElementById("inference-step").classList.contains("starting")) {
-        updatePipelineProgress("inference-step");
     } else if (document.getElementById("orchestrator-step").classList.contains("starting")) {
         updatePipelineProgress("orchestrator-step");
     } else if (document.getElementById("camera-step").classList.contains("starting")) {
@@ -197,12 +192,12 @@ function refreshPipelineProgress() {
     }
 }
 
-async function updateServiceStatus(stepId, statusTextId, url, serviceName) {
-    const step = document.getElementById(stepId);
-    const statusText = document.getElementById(statusTextId);
+async function updateCameraStatus() {
+    const step = document.getElementById("camera-step");
+    const statusText = document.getElementById("camera-status-text");
 
     try {
-        const response = await fetch(url);
+        const response = await fetch("http://localhost:8081/status");
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}`);
         }
@@ -225,33 +220,66 @@ async function updateServiceStatus(stepId, statusTextId, url, serviceName) {
         step.classList.remove("up", "starting", "down");
         step.classList.add("down");
         statusText.textContent = "Not reachable";
-        console.error(`${serviceName} status check failed:`, error);
+        console.error("Camera status check failed:", error);
     }
 
     refreshPipelineProgress();
 }
 
-function registerStepClick(stepId, url) {
-    document.getElementById(stepId).addEventListener("click", function () {
-        const step = document.getElementById(stepId);
-        if (step.classList.contains("up")) {
-            window.open(url, "_blank");
+async function updateOrchestratorStatus() {
+    const step = document.getElementById("orchestrator-step");
+    const statusText = document.getElementById("orchestrator-status-text");
+
+    try {
+        const response = await fetch("http://localhost:8082/status");
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
         }
-    });
+
+        const data = await response.json();
+
+        step.classList.remove("up", "starting", "down");
+
+        if (data.state === "running") {
+            step.classList.add("up");
+            statusText.textContent = "Running";
+        } else if (data.state === "starting") {
+            step.classList.add("starting");
+            statusText.textContent = "Starting...";
+        } else {
+            step.classList.add("down");
+            statusText.textContent = `State: ${data.state}`;
+        }
+    } catch (error) {
+        step.classList.remove("up", "starting", "down");
+        step.classList.add("down");
+        statusText.textContent = "Not reachable";
+        console.error("Orchestrator status check failed:", error);
+    }
+
+    refreshPipelineProgress();
 }
 
-function refreshAllStatuses() {
-    updateServiceStatus("camera-step", "camera-status-text", "http://localhost:8081/status", "Camera");
-    updateServiceStatus("orchestrator-step", "orchestrator-status-text", "http://localhost:8082/status", "Orchestrator");
-    updateServiceStatus("inference-step", "inference-status-text", "http://localhost:8083/status", "Inference");
-}
+updateCameraStatus();
+updateOrchestratorStatus();
 
-refreshAllStatuses();
-setInterval(refreshAllStatuses, STATUS_REFRESH_MS);
+const STATUS_REFRESH_MS = 10000;
+setInterval(updateCameraStatus, STATUS_REFRESH_MS);
+setInterval(updateOrchestratorStatus, STATUS_REFRESH_MS);
 
-registerStepClick("camera-step", "http://localhost:8081/status");
-registerStepClick("orchestrator-step", "http://localhost:8082/status");
-registerStepClick("inference-step", "http://localhost:8083/status");
+document.getElementById("camera-step").addEventListener("click", function () {
+    const step = document.getElementById("camera-step");
+    if (step.classList.contains("up")) {
+        window.open("http://localhost:8081/status", "_blank");
+    }
+});
+
+document.getElementById("orchestrator-step").addEventListener("click", function () {
+    const step = document.getElementById("orchestrator-step");
+    if (step.classList.contains("up")) {
+        window.open("http://localhost:8082/status", "_blank");
+    }
+});
 </script>
 
 </body>

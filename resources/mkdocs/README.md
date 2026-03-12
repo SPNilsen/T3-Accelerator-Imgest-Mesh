@@ -127,7 +127,7 @@ sudo docker run --name t3-docs -d -p 8080:80 registry.gitlab.com/dosayles/repo:t
 pkill -SIGHUP -f /Applications/Docker.app 'docker serve'
 
 limactl start
-lima nerdctl build -t mkdocs -f resources/Containerfile-webserver .
+lima nerdctl build -t mkdocs -f resources/mkdocs/Containerfile .
 
 lima nerdctl run --rm -it -p 8000:8000 -v ${PWD}:/docs:ro squidfunk/mkdocs-material
 

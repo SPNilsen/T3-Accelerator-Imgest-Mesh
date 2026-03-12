@@ -1,0 +1,15 @@
+service_name: inference
+mode: placeholder-model
+
+status:
+  host: 0.0.0.0
+  port: 8083
+
+model:
+  name: demo-placeholder-model
+  path: /opt/inference/models/model-placeholder.bin
+
+storage:
+  input_directory: /opt/inference/input
+  json_output_directory: /opt/inference/output/json
+  image_output_directory: /opt/inference/output/images

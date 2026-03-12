@@ -1,0 +1,18 @@
+FROM python:3.11-slim
+
+WORKDIR /opt/inference
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY app ./app
+COPY config ./config
+COPY scripts ./scripts
+COPY models ./models
+
+RUN mkdir -p /opt/inference/input /opt/inference/output/json /opt/inference/output/images
+RUN chmod +x ./scripts/start.sh
+
+EXPOSE 8083
+
+CMD ["./scripts/start.sh"]
