@@ -405,6 +405,12 @@ See [`docs/dev/local-dev.md`](docs/dev/local-dev.md) for how the services connec
 via shared bind-mounted directories, what's stubbed vs. real, and the
 migration path from mock inference to a real model.
 
+### Giving a demo
+
+See [`docs/dev/demo-guide.md`](docs/dev/demo-guide.md) for a 30-second smoke
+test, a narrated 5-minute demo, a 15-minute architecture deep-dive, and an
+audience-tuning cheatsheet (engineer / data scientist / manager / customer).
+
 ## Status
 
 This repository represents the **initial baseline of the Imgest-Mesh
