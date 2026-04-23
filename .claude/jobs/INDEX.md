@@ -6,7 +6,7 @@ Format: `| ID | Title | Assigned | Status | Branch | SP |`
 |---|---|---|---|---|---|
 | job-1 | Local dev environment on Windows (understand + run all services) | Sean | done | feature/local-dev-compose | 6 |
 | job-2 | Cisco AI Pod demo prep (K8s manifests + GPU + real inference) | Sean | not-started | feature/cisco-demo-manifests | 8 |
-| job-3 | Dashboard pipeline flow animation — traveling bubble on progress line | Sean | not-started | feature/pipeline-flow-animation | 3 |
+| job-3 | Dashboard pipeline flow animation — traveling bubble on progress line | Sean | done | feature/pipeline-flow-animation | 3 |
 
 ## Status values
 - `not-started` — in queue
