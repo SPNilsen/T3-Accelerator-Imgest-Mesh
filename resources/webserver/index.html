@@ -104,6 +104,34 @@ body {
     font-size:12px;
     color:#6b7280;
 }
+
+.flow-bubble {
+    position:absolute;
+    left:0;
+    top:25px;
+    width:10px;
+    height:10px;
+    margin-left:-5px;
+    margin-top:-5px;
+    border-radius:50%;
+    background:#a5b4fc;
+    box-shadow:0 0 10px rgba(255,255,255,0.9), 0 0 4px rgba(79,70,229,0.8);
+    z-index:0;
+    pointer-events:none;
+    animation:flow-bubble-travel 3000ms linear forwards;
+    --flow-bubble-end:0px;
+}
+
+@keyframes flow-bubble-travel {
+    0%   { transform:translateX(0); opacity:0; }
+    8%   { opacity:0.95; }
+    92%  { opacity:0.95; }
+    100% { transform:translateX(var(--flow-bubble-end)); opacity:0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .flow-bubble { display:none; }
+}
 </style>
 </head>
 
@@ -195,7 +223,74 @@ function refreshPipelineProgress() {
     } else {
         resetPipelineProgress();
     }
+    updateFlowEndpoint();
 }
+
+const FLOW_BUBBLE_INTERVAL_MS = 1500;
+let flowEndX = 0;
+let flowTimer = null;
+
+function computeFlowEndX() {
+    const pipeline = document.querySelector(".pipeline");
+    if (!pipeline) return 0;
+    const pipelineRect = pipeline.getBoundingClientRect();
+    const orderedUpCandidates = ["inference-step", "orchestrator-step", "camera-step"];
+    for (const id of orderedUpCandidates) {
+        const step = document.getElementById(id);
+        if (step && step.classList.contains("up")) {
+            const circle = step.querySelector(".circle");
+            const rect = circle.getBoundingClientRect();
+            return rect.left + rect.width / 2 - pipelineRect.left;
+        }
+    }
+    return 0;
+}
+
+function updateFlowEndpoint() {
+    const newX = computeFlowEndX();
+    if (Math.abs(newX - flowEndX) < 1) return;
+    flowEndX = newX;
+    document.querySelectorAll(".flow-bubble").forEach(b => b.remove());
+}
+
+function spawnFlowBubble() {
+    if (document.visibilityState === "hidden") return;
+    if (flowEndX <= 0) return;
+    const pipeline = document.querySelector(".pipeline");
+    if (!pipeline) return;
+    const bubble = document.createElement("div");
+    bubble.className = "flow-bubble";
+    bubble.style.setProperty("--flow-bubble-end", `${flowEndX}px`);
+    bubble.addEventListener("animationend", () => bubble.remove());
+    pipeline.appendChild(bubble);
+}
+
+function startFlowBubbles() {
+    if (flowTimer !== null) return;
+    flowTimer = setInterval(spawnFlowBubble, FLOW_BUBBLE_INTERVAL_MS);
+    spawnFlowBubble();
+}
+
+function stopFlowBubbles() {
+    if (flowTimer !== null) {
+        clearInterval(flowTimer);
+        flowTimer = null;
+    }
+    document.querySelectorAll(".flow-bubble").forEach(b => b.remove());
+}
+
+document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") {
+        stopFlowBubbles();
+    } else {
+        updateFlowEndpoint();
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            startFlowBubbles();
+        }
+    }
+});
+
+window.addEventListener("resize", updateFlowEndpoint);
 
 async function updateServiceStatus(stepId, statusTextId, url, serviceName) {
     const step = document.getElementById(stepId);
@@ -252,6 +347,10 @@ setInterval(refreshAllStatuses, STATUS_REFRESH_MS);
 registerStepClick("camera-step", "http://localhost:8081/status");
 registerStepClick("orchestrator-step", "http://localhost:8082/status");
 registerStepClick("inference-step", "http://localhost:8083/status");
+
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    startFlowBubbles();
+}
 </script>
 
 </body>
