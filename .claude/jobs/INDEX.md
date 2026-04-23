@@ -4,8 +4,9 @@ Format: `| ID | Title | Assigned | Status | Branch | SP |`
 
 | ID | Title | Assigned | Status | Branch | SP |
 |---|---|---|---|---|---|
-| job-1 | Local dev environment on Windows (understand + run all services) | Sean | in-progress | feature/local-dev-compose | 6 |
+| job-1 | Local dev environment on Windows (understand + run all services) | Sean | done | feature/local-dev-compose | 6 |
 | job-2 | Cisco AI Pod demo prep (K8s manifests + GPU + real inference) | Sean | not-started | feature/cisco-demo-manifests | 8 |
+| job-3 | Dashboard pipeline flow animation — traveling bubble on progress line | Sean | not-started | feature/pipeline-flow-animation | 3 |
 
 ## Status values
 - `not-started` — in queue
@@ -16,4 +17,5 @@ Format: `| ID | Title | Assigned | Status | Branch | SP |`
 ## Notes
 - `job-1` bundles codebase walkthrough with actually getting services running — the walkthrough is a means, not a deliverable
 - Deadline for Cisco demo: 2026-05-20
-- All feature branches off `dev` (needs to be created from `main` first)
+- All feature branches off `dev` (`dev` and `test` now exist on origin)
+- `job-3` feature branch cut from `dev` after `job-1` landed there
