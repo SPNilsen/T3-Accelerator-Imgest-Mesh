@@ -5,6 +5,7 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy site content
 COPY index.html /usr/share/nginx/html/index.html
+COPY t3-imgest-mesh.png /usr/share/nginx/html/t3-imgest-mesh.png
 
 EXPOSE 8080
 

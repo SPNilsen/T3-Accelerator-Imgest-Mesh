@@ -1,0 +1,13 @@
+# Spark Framework Engine — .claude/.gitignore
+# This is the framework repo, not a project. Commit the engine, ignore runtime state.
+
+# Runtime state (not framework)
+bus/
+session/
+research/
+settings.local.json
+CLAUDE.local.md
+.DS_Store
+
+# Project-specific (managed by Claude Code)
+projects/
