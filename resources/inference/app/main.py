@@ -3,7 +3,7 @@ import uvicorn
 
 from .config import load_config
 from .status import app, set_mode, set_model, set_state
-from .worker import run_placeholder_loop
+from .worker import run_mock_inference_loop
 
 def run_status_server(host: str, port: int):
     uvicorn.run(app, host=host, port=port)
@@ -23,7 +23,7 @@ def main():
     status_thread.start()
 
     set_state("running")
-    run_placeholder_loop()
+    run_mock_inference_loop(config)
 
 if __name__ == "__main__":
     main()

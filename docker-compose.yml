@@ -1,0 +1,88 @@
+name: imgest-mesh
+
+# Local dev stack for Imgest-Mesh on Windows / macOS / Linux (Docker Desktop).
+# CPU-only; inference runs in MOCK mode (random pass/fail). No GPU required.
+#
+# Data flow (via bind-mounted host dirs under ./.data/):
+#   camera  -- writes frames --> .data/frames/
+#   orchestrator -- watches .data/frames/ -- routes --> .data/routed/
+#   inference -- watches .data/routed/ -- emits verdicts --> .data/results/json/
+#   webserver -- serves dashboard --> http://localhost:8080
+#
+# Ports exposed to the host:
+#   8080  webserver (dashboard UI)
+#   8081  camera /status + /healthz
+#   8082  orchestrator /status + /healthz
+#   8083  inference /status + /healthz
+
+services:
+  camera:
+    build:
+      context: ./resources/camera
+      dockerfile: Containerfile
+    image: imgest-mesh/camera:dev
+    container_name: imgest-camera
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./.data/frames:/opt/camera/output
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8081/healthz', timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+
+  orchestrator:
+    build:
+      context: ./resources/orchestrator
+      dockerfile: Containerfile
+    image: imgest-mesh/orchestrator:dev
+    container_name: imgest-orchestrator
+    ports:
+      - "8082:8082"
+    volumes:
+      - ./.data/frames:/opt/orchestrator/input
+      - ./.data/routed:/opt/orchestrator/output/inference-1
+    depends_on:
+      - camera
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8082/healthz', timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+
+  inference:
+    build:
+      context: ./resources/inference
+      dockerfile: Containerfile
+    image: imgest-mesh/inference:dev
+    container_name: imgest-inference
+    ports:
+      - "8083:8083"
+    volumes:
+      - ./.data/routed:/opt/inference/input
+      - ./.data/results/json:/opt/inference/output/json
+      - ./.data/results/images:/opt/inference/output/images
+    depends_on:
+      - orchestrator
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8083/healthz', timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+
+  webserver:
+    build:
+      context: ./resources/webserver
+      dockerfile: Containerfile
+    image: imgest-mesh/webserver:dev
+    container_name: imgest-webserver
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
