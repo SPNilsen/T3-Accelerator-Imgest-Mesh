@@ -1,0 +1,28 @@
+# Imgest-Mesh docs — multi-stage build
+#   Stage 1: Material for MkDocs builds the static site from /mkdocs.yml
+#   Stage 2: nginx-unprivileged serves the built /site on :8080 (container port)
+
+FROM squidfunk/mkdocs-material AS build
+RUN pip install --no-cache-dir \
+    mkdocs-macros-plugin \
+    mkdocs-glightbox \
+    mkdocs-mermaid2-plugin \
+    mkdocs-charts-plugin \
+    mkdocs-pdf \
+    mkdocs-gallery \
+    mkdocs-git-latest-changes-plugin \
+    mkdocs-git-revision-date-localized-plugin \
+    mkdocs-drawio-file
+WORKDIR /site
+COPY mkdocs.yml /site/mkdocs.yml
+COPY docs /site/docs
+# .git is needed by the git-revision-date and git-latest-changes plugins.
+# It stays in the build stage only — not copied to the final nginx image.
+COPY .git /site/.git
+RUN mkdocs build -d /site/build
+
+FROM nginxinc/nginx-unprivileged:stable-alpine
+COPY --from=build /site/build /usr/share/nginx/html
+COPY resources/docs/nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 8080
+CMD ["nginx", "-g", "daemon off;"]

@@ -50,6 +50,7 @@ As the circles turn indigo, point out:
 - The dashboard polls each service's `/status` endpoint every 10 seconds
 - Each circle **is clickable** once the service is `up` — opens that service's raw JSON status
 - The progress bar reflects how far through the pipeline data is flowing
+- Top-right **Docs** link opens the full project documentation at <http://localhost:8000> in a new tab — pipeline page keeps polling uninterrupted
 
 **3. Show the raw service APIs** (in another terminal or browser tab):
 

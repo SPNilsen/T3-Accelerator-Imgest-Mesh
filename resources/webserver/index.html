@@ -105,6 +105,34 @@ body {
     color:#6b7280;
 }
 
+.docs-link {
+    position:fixed;
+    top:20px;
+    right:20px;
+    font-family:Arial, sans-serif;
+    font-size:13px;
+    font-weight:600;
+    color:#6b7280;
+    text-decoration:none;
+    padding:6px 10px;
+    border:1px solid #d1d5db;
+    border-radius:6px;
+    background:white;
+    z-index:10;
+    transition:color 0.15s ease, border-color 0.15s ease;
+}
+
+.docs-link:hover,
+.docs-link:focus-visible {
+    color:#4f46e5;
+    border-color:#4f46e5;
+    outline:none;
+}
+
+.docs-link .fa-book {
+    margin-right:4px;
+}
+
 .flow-bubble {
     position:absolute;
     left:0;
@@ -136,6 +164,12 @@ body {
 </head>
 
 <body>
+
+<a class="docs-link" href="http://localhost:8000" target="_blank"
+   rel="noopener noreferrer"
+   title="Open project documentation in a new tab">
+    <i class="fa-solid fa-book"></i>Docs
+</a>
 
 <div class="logo">
 <img src="t3-imgest-mesh.png" style="width:200px"><br><br>

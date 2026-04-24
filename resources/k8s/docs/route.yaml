@@ -1,0 +1,12 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: docs
+
+spec:
+  to:
+    kind: Service
+    name: docs
+
+  port:
+    targetPort: http

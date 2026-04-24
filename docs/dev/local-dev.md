@@ -34,10 +34,13 @@ Same host dir mounted into two containers = the shared channel between stages. B
 ## Port mapping to host
 
 Host → Container:
+- `8000` → docs (MkDocs Material site)
 - `8080` → webserver (nginx dashboard UI)
 - `8081` → camera FastAPI `/healthz` `/status`
 - `8082` → orchestrator FastAPI `/healthz` `/status`
 - `8083` → inference FastAPI `/healthz` `/status`
+
+The dashboard at `:8080` includes a fixed-position **Docs** link (top-right) that opens `:8000` in a new browser tab. It uses `target="_blank" rel="noopener noreferrer"` so the pipeline page is never navigated away from — the status-polling loop and flow-bubble animation keep running in the original tab even while the docs site is open in another.
 
 The dashboard JS in `resources/webserver/index.html` hardcodes `http://localhost:808[1-3]/status`. That works because browser-side fetches hit Docker Desktop's port mappings directly — not in-container DNS.
 
