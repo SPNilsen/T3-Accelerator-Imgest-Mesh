@@ -10,6 +10,7 @@ name: imgest-mesh
 #   webserver -- serves dashboard --> http://localhost:8080
 #
 # Ports exposed to the host:
+#   8000  docs (MkDocs Material site)
 #   8080  webserver (dashboard UI)
 #   8081  camera /status + /healthz
 #   8082  orchestrator /status + /healthz
@@ -85,4 +86,14 @@ services:
     container_name: imgest-webserver
     ports:
       - "8080:8080"
+    restart: unless-stopped
+
+  docs:
+    build:
+      context: .
+      dockerfile: resources/docs/Containerfile
+    image: imgest-mesh/docs:dev
+    container_name: imgest-docs
+    ports:
+      - "8000:8080"
     restart: unless-stopped
