@@ -223,3 +223,27 @@ That's not redundancy — that's a clean interface. Merging the repos would *hid
 ---
 
 *Generated on `dev`. Initial assessment committed as `62c3f56`; consolidation analysis appended as a follow-on revision. Source: Explore-agent survey of `C:\c\t3\T3-Accelerator-JNJ-Armor` + existing knowledge of `T3-Accelerator-Imgest-Mesh`.*
+
+---
+
+## Addendum (2026-04-25) — corrected framing of the two repos' relationship
+
+The original analysis above framed Imgest-Mesh as a *generalized accelerator that could swap to any customer*. That's not quite right. Sean's correction:
+
+> **Imgest-Mesh is the generic implementation of the JNJ-Armor project specifically.** The Cisco demo runs the Imgest-Mesh platform against JNJ-Armor's client-specific models. The two repos aren't "related but separate" — they're "generic of" + "specific of" the same engagement, intentionally co-presented in the demo narrative.
+
+What this changes:
+
+- **The IP-boundary argument weakens for the demo context.** The demo *is* the JNJ engagement; surfacing its customer-specific docs alongside the generic platform docs is the point, not a leak. (For *future* customer engagements that reuse the platform, the IP boundary returns — but that's a post-2026-05-20 concern.)
+- **The "linked container" pattern is the right demo-time bridge.** Rather than copying customer-specific pages into Imgest-Mesh's docs (which would create drift and put a wrong-repo `filemap.md` in this tree), stand up a second `mkdocs-material` container that builds the JNJ-Armor MkDocs site from the sibling repo on the host, served on a separate port. Imgest-Mesh's nav and dashboard cross-link to it. Each repo owns its own docs end-to-end. Tracked as **job-5**.
+- **The long-term recommendation stands unchanged.** Separate repos. Thin shared MkDocs package post-demo. Monorepo is still off the recommendation path. The reframe corrects the *framing* of the two repos' relationship without changing the architectural call.
+
+What this does NOT change:
+
+- The 43 MB model artifacts, R + Python model-development code, and Dataloop integration still belong to JNJ-Armor only.
+- The model-artifact contract (JNJ-Armor produces weights, Imgest-Mesh's `worker.py` loads them) is still the integration shape — the linked docs container surfaces *documentation* between the two, not code.
+- `docs/armor/` stays read-only in this repo. The linked container makes the read-only rule *more* defensible — JNJ-Armor docs come from JNJ-Armor's container, not from a copy here.
+
+The four nav-orphan files I almost recommended dropping (`t3/exec-overview.md`, `t3/filemap.md`, `crisp-dm/additional.md`, `crisp-dm/lessons-learned.md`) will surface via the linked container instead. The `mkdocs.yml` nav in this repo loses those four entries (they're customer-engagement deliverables, not generic-platform docs) and gains an external-link section pointing at the linked container's URLs.
+
+Job-5 is the implementation. Plan at `.claude/jobs/job-5-jnj-armor-docs-container.md`.
