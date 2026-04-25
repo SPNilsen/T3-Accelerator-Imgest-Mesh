@@ -82,16 +82,18 @@ nav:
     - 'Data Preparation': 'crisp-dm/data-preparation.md'
     - 'Modeling': 'crisp-dm/modeling.md'
     - 'Evaluation': 'crisp-dm/evaluation.md'
-    - 'Additional': 'crisp-dm/additional.md'
-    - 'Lessons Learned': 'crisp-dm/lessons-learned.md'
   - 'Models': 'armor/models.md'
   - 'Project Management':
-    - "Executive Overview": 't3/exec-overview.md'
     - 'Activity Blog': 't3/index.md'
     - 'Tags Index': 't3/tags.md'
     - 'Kickoff': 't3/kickoff.md'
   - 'Additional Materials':
-    - 'Filemap': 't3/filemap.md'
     - 'F.A.Q.': 't3/faq.md'
     - 'Glossary': 't3/glossary.md'
     - '<tt>git</tt> Log': 't3/gitlog.md'
+  - 'JNJ-Armor Project':
+    - 'Executive Overview': 'http://localhost:8001/t3/exec-overview.html'
+    - 'Filemap':            'http://localhost:8001/t3/filemap.html'
+    - 'CRISP-DM Additional': 'http://localhost:8001/crisp-dm/additional.html'
+    - 'Lessons Learned':    'http://localhost:8001/crisp-dm/lessons-learned.html'
+    - 'Full JNJ-Armor Docs': 'http://localhost:8001/'

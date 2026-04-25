@@ -1,0 +1,12 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: jnj-armor-docs
+
+spec:
+  to:
+    kind: Service
+    name: jnj-armor-docs
+
+  port:
+    targetPort: http

@@ -34,13 +34,28 @@ Same host dir mounted into two containers = the shared channel between stages. B
 ## Port mapping to host
 
 Host → Container:
-- `8000` → docs (MkDocs Material site)
+- `8000` → docs (MkDocs Material site for Imgest-Mesh)
+- `8001` → jnj-armor-docs (linked MkDocs site for the JNJ-Armor sibling repo)
 - `8080` → webserver (nginx dashboard UI)
 - `8081` → camera FastAPI `/healthz` `/status`
 - `8082` → orchestrator FastAPI `/healthz` `/status`
 - `8083` → inference FastAPI `/healthz` `/status`
 
-The dashboard at `:8080` includes a fixed-position **Docs** link (top-right) that opens `:8000` in a new browser tab. It uses `target="_blank" rel="noopener noreferrer"` so the pipeline page is never navigated away from — the status-polling loop and flow-bubble animation keep running in the original tab even while the docs site is open in another.
+The dashboard at `:8080` has two fixed-position links (top-right): **Docs** opens the Imgest-Mesh site at `:8000`, **JNJ-Armor Docs** opens the linked JNJ-Armor site at `:8001`. Both use `target="_blank" rel="noopener noreferrer"` so the pipeline page is never navigated away from — the status-polling loop and flow-bubble animation keep running in the original tab even while either docs site is open in another.
+
+### Linked JNJ-Armor docs container — sibling-checkout requirement
+
+The `jnj-armor-docs` compose service builds against the **JNJ-Armor sibling repo on the host**. By default it expects the layout:
+
+```
+parent/
+├── T3-Accelerator-Imgest-Mesh/   (this repo)
+└── T3-Accelerator-JNJ-Armor/     (sibling clone)
+```
+
+Override the path with `JNJ_ARMOR_REPO_PATH` in `.env` (see `.env.example`). Without the sibling clone, `docker compose up -d jnj-armor-docs` fails with a build-context error — by design and documented; the rest of the stack continues to run normally.
+
+The `mkdocs.yml` nav in this repo includes external links pointing at `http://localhost:8001/...` for four pages that live in JNJ-Armor only (Executive Overview, Filemap, CRISP-DM Additional, Lessons Learned). On OpenShift these will be rewritten to the JNJ-Armor docs Route URL as part of `job-2`.
 
 The dashboard JS in `resources/webserver/index.html` hardcodes `http://localhost:808[1-3]/status`. That works because browser-side fetches hit Docker Desktop's port mappings directly — not in-container DNS.
 
