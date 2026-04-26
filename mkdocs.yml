@@ -1,8 +1,6 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 
 site_name: Imgest-Mesh
-repo_url: https://gitlab.com/dosayles/t3-imgest-mesh
-repo_name: dosayles/t3-imgest-mesh
 theme:
   name: material
   logo: assets/images/t3-logo-white-letters.png
@@ -14,8 +12,6 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.path
-  icon:
-    repo: fontawesome/brands/git-alt
 plugins:
   - blog:
       blog_dir: t3
