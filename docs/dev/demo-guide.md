@@ -51,6 +51,7 @@ As the circles turn indigo, point out:
 - Each circle **is clickable** once the service is `up` — opens that service's raw JSON status
 - The progress bar reflects how far through the pipeline data is flowing
 - Top-right **Docs** link opens the full project documentation at <http://localhost:8000> in a new tab — pipeline page keeps polling uninterrupted
+- Adjacent **JNJ-Armor Docs** link opens the linked customer-engagement docs at <http://localhost:8001> in a new tab — same new-tab semantics; surfaces the customer-specific pages (Executive Overview, Filemap, CRISP-DM Additional, Lessons Learned) that live only in the JNJ-Armor repo
 
 **3. Show the raw service APIs** (in another terminal or browser tab):
 

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jnj-armor-docs
+  labels:
+    app: jnj-armor-docs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jnj-armor-docs
+  template:
+    metadata:
+      labels:
+        app: jnj-armor-docs
+    spec:
+      imagePullSecrets:
+        - name: gitlab-registry-creds
+      containers:
+        - name: jnj-armor-docs
+          image: registry.gitlab.com/dosayles/t3-imgest-mesh/jnj-armor-docs:0.1.0
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
