@@ -1,3 +1,5 @@
+![Imgest-Mesh](../assets/images/imgest-mesh-logo.png){ width="320" }
+
 # Imgest-Mesh on Cisco AI Pods — Solution Whitepaper
 
 > **Audience:** AI engineers, ML platform leads, and infrastructure architects evaluating the Imgest-Mesh accelerator on a Cisco AI Pod for the JNJ-Armor manufacturing-inspection use case.
@@ -25,11 +27,19 @@ The architecture's defining property is *operational simplicity through containe
 
 **Demo framing.** Imgest-Mesh is the *generic implementation of the Armor project*; the JNJ-Armor sibling repo carries the customer-specific data, models, and notebooks. The demo runs the generic platform against the customer's actual model artifacts — not a synthetic stand-in.
 
+![Imgest-Mesh high-level edge architecture](../assets/images/IMGEST%20MESH-High%20Level%20Edge%20Architecture.webp){ width="100%" }
+
+*High-level edge architecture — the per-line view. Each production line drives a Camera Connector → Image Orchestration → System Manager → Image Compressor stack, fed by PLC and OPC telemetry. The Cisco AI Pod consolidates many of these line-stacks behind a single OpenShift control plane.*
+
 ---
 
 ## 3. Solution architecture — application stack
 
 The application is six independent containers orchestrated via Compose locally and via OpenShift manifests in production. The wire protocol between stages is the filesystem (bind-mounts in dev, PersistentVolumeClaims on OpenShift). On a real production line a message bus (Kafka / NATS) replaces the filesystem for fan-out, but the service shapes don't change.
+
+![Imgest-Mesh high-level system architecture](../assets/images/IMGEST%20MESH-High%20Level%20System%20Architecture.webp){ width="100%" }
+
+*High-level system architecture — Imgest-Mesh's reference data flow from machine-vision sources through the inference plane to downstream IT/OT consumers (MES, historian, IoT broker).*
 
 | Stage | Container | Role | GPU? | Container port |
 |---|---|---|---|---|
@@ -45,6 +55,10 @@ The application is six independent containers orchestrated via Compose locally a
 **Data flow.** Camera writes frames → orchestrator routes per-line → inference runs the model and writes a JSON sidecar plus (optionally) an annotated image → MES or downstream IT/OT system consumes the verdicts. In the JNJ-Armor target deployment a dedicated **Image Compressor** stage and a **System Manager** stage flank inference (per Doug Sayles' edge architecture); both are placeholders today and slot into the same FastAPI shape when implemented.
 
 **Documentation as part of the deployment.** The docs and jnj-armor-docs containers are deliberately part of the application stack, not a separate publishing pipeline. On OpenShift each gets its own Deployment + Service + Route. This keeps the demo's "platform plus engagement, side by side" narrative reachable from any node on the customer's network without extra infrastructure.
+
+![Imgest-Mesh low-level edge architecture](../assets/images/IMGEST%20MESH-Low%20Level%20Edge%20Architecture.webp){ width="100%" }
+
+*Low-level edge architecture — component view of the inference plane. Cameras feed the Camera Connector and Image Orchestration components; multiple inference containers fan out behind the orchestrator; System Manager handles edge configuration and PLC/OPC ingest; the Image Compressor produces the compressed image plus JSON sidecar that egresses to downstream IT/OT systems.*
 
 ---
 
@@ -64,6 +78,10 @@ The inference container loads model weights produced by the JNJ-Armor data-scien
 ---
 
 ## 5. Physical stack — Cisco AI Pod + NVIDIA
+
+![Cisco AI Pod](../assets/images/cisco-aipod.png){ width="600" }
+
+*Cisco AI Pod — the validated UCS-X compute + NVIDIA accelerator + Red Hat OpenShift platform that hosts Imgest-Mesh in production.*
 
 **Confirmed at the application/platform layer:**
 - **Compute:** Cisco UCS X-Series chassis (X9508 class) with X210c / X410c M7 compute nodes. *To confirm: exact node count and SKU per pod.*
