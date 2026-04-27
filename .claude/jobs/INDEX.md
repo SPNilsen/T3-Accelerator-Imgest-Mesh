@@ -8,7 +8,7 @@ Format: `| ID | Title | Assigned | Status | Branch | SP |`
 | job-2 | Cisco AI Pod demo prep (K8s manifests + GPU + real inference) | Sean | not-started | feature/cisco-demo-manifests | 8 |
 | job-3 | Dashboard pipeline flow animation — traveling bubble on progress line | Sean | done | feature/pipeline-flow-animation | 3 |
 | job-4 | MkDocs site as a standalone container + dashboard link (new tab) | Sean | done | feature/mkdocs-container | 4 |
-| job-5 | Linked JNJ-Armor docs container — surface customer docs alongside generic platform docs | Sean | not-started | feature/jnj-armor-docs-container | 4 |
+| job-5 | Linked JNJ-Armor docs container — surface customer docs alongside generic platform docs | Sean | done | feature/jnj-armor-docs-container | 4 |
 
 ## Status values
 - `not-started` — in queue
