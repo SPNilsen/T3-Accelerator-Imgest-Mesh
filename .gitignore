@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Environments / secrets
+.env
+.env.local
+*.pem
+*.key
+
+# Local dev data (docker-compose bind mounts)
+.data/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Docs build output
+docs/generated/
+site/
+*.pdf
+
+# Logs
+*.log
+logs/

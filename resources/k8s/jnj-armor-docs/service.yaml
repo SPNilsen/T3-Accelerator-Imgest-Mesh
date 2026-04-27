@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jnj-armor-docs
+  labels:
+    app: jnj-armor-docs
+
+spec:
+  selector:
+    app: jnj-armor-docs
+
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
+
+  type: ClusterIP
