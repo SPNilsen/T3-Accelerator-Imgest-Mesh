@@ -1,0 +1,16 @@
+# Applies only to builds whose context is the repo root.
+# Today that's just the `docs` service.
+#
+# .git is intentionally NOT ignored — the mkdocs git-revision-date and
+# git-latest-changes plugins need it during the build stage. It is not
+# copied into the final nginx runtime image.
+.github
+.claude
+.data
+.venv
+node_modules
+**/__pycache__
+**/*.pyc
+.env
+.env.local
+.DS_Store

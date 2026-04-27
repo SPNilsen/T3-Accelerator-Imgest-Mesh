@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docs
+  labels:
+    app: docs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docs
+  template:
+    metadata:
+      labels:
+        app: docs
+    spec:
+      imagePullSecrets:
+        - name: gitlab-registry-creds
+      containers:
+        - name: docs
+          image: registry.gitlab.com/dosayles/t3-imgest-mesh/docs:0.1.0
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP

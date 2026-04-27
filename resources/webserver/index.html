@@ -105,6 +105,40 @@ body {
     color:#6b7280;
 }
 
+.docs-link-group {
+    position:fixed;
+    top:20px;
+    right:20px;
+    display:flex;
+    gap:8px;
+    z-index:10;
+}
+
+.docs-link {
+    font-family:Arial, sans-serif;
+    font-size:13px;
+    font-weight:600;
+    color:#6b7280;
+    text-decoration:none;
+    padding:6px 10px;
+    border:1px solid #d1d5db;
+    border-radius:6px;
+    background:white;
+    transition:color 0.15s ease, border-color 0.15s ease;
+}
+
+.docs-link:hover,
+.docs-link:focus-visible {
+    color:#4f46e5;
+    border-color:#4f46e5;
+    outline:none;
+}
+
+.docs-link .fa-book,
+.docs-link .fa-book-medical {
+    margin-right:4px;
+}
+
 .flow-bubble {
     position:absolute;
     left:0;
@@ -136,6 +170,19 @@ body {
 </head>
 
 <body>
+
+<div class="docs-link-group">
+    <a class="docs-link" href="http://localhost:8000" target="_blank"
+       rel="noopener noreferrer"
+       title="Open Imgest-Mesh project documentation in a new tab">
+        <i class="fa-solid fa-book"></i>Docs
+    </a>
+    <a class="docs-link" href="http://localhost:8001" target="_blank"
+       rel="noopener noreferrer"
+       title="Open the linked JNJ-Armor project documentation in a new tab">
+        <i class="fa-solid fa-book-medical"></i>JNJ-Armor Docs
+    </a>
+</div>
 
 <div class="logo">
 <img src="t3-imgest-mesh.png" style="width:200px"><br><br>

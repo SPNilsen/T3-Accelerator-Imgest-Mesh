@@ -23,6 +23,8 @@ Example: `git merge --no-ff feature/local-dev-compose` (from `dev`).
 ## Approval gate
 Merges require Sean's explicit approval. Commits can proceed without asking; merges cannot.
 
+**Each promotion up the branch chain is its own approval.** An approval to merge `feature/x → dev` does NOT authorize the onward `dev → test` merge — ask again. `test → main` is a third, separate ask. Default stop point is `dev`.
+
 ## Read-only areas
 - `docs/armor/` — ARMOR / ALI (J&J Vistakon) case study. Reference material only; do not edit.
 
