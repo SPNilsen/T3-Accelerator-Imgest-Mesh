@@ -1,0 +1,3 @@
+# Force LF line endings for shell scripts regardless of OS checkout settings
+*.sh text eol=lf
+Containerfile text eol=lf

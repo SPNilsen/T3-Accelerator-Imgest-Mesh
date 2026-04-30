@@ -2,8 +2,17 @@ FROM python:3.11-slim
 
 WORKDIR /opt/inference
 
+ARG SKIP_SSL_VERIFY=false
+
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN if [ "$SKIP_SSL_VERIFY" = "true" ]; then \
+      pip install --no-cache-dir \
+        --trusted-host pypi.org \
+        --trusted-host files.pythonhosted.org \
+        -r requirements.txt; \
+    else \
+      pip install --no-cache-dir -r requirements.txt; \
+    fi
 
 COPY app ./app
 COPY config ./config
@@ -11,7 +20,7 @@ COPY scripts ./scripts
 COPY models ./models
 
 RUN mkdir -p /opt/inference/input /opt/inference/output/json /opt/inference/output/images
-RUN chmod +x ./scripts/start.sh
+RUN sed -i 's/\r$//' scripts/start.sh && chmod +x ./scripts/start.sh
 
 EXPOSE 8083
 
