@@ -52,7 +52,7 @@ def emit_bmp_frame(
     filename_prefix: str,
     frame_number: int,
     max_frames: int = 20,
-) -> str:
+) -> tuple[str, str | None]:
     bmps = sorted(bmp_input_dir.glob("*.bmp"))
     chosen = random.choice(bmps)
 
@@ -61,10 +61,12 @@ def emit_bmp_frame(
     shutil.copy(chosen, dest)  # copy2 preserves source mtime, breaking prune order
 
     thumb_src = chosen.parent / f"{chosen.stem}.thumb.png"
+    thumb_filename: str | None = None
     if thumb_src.exists():
-        shutil.copy(thumb_src, dest.parent / f"{dest.stem}.thumb.png")
+        shutil.copy(thumb_src, dest.parent / thumb_src.name)
+        thumb_filename = thumb_src.name
     else:
-        log.warning("no thumbnail found for %s — /latest-thumb may lag", chosen.name)
+        log.warning("no thumbnail found for %s — /thumb endpoint will return 404", chosen.name)
 
     ts = _now_iso()
     _write_metadata(dest, {
@@ -72,6 +74,7 @@ def emit_bmp_frame(
         "file_type": "bmp",
         "filename": dest.name,
         "filesize": dest.stat().st_size,
+        "thumb_filename": thumb_filename,
         "created_ts": ts,
         "pipeline": [{
             "stage": "camera",
@@ -81,8 +84,8 @@ def emit_bmp_frame(
         }],
     })
 
-    _prune_dir(output_dir, max_frames, [".bmp", ".txt"], [".meta.json", ".thumb.png"])
-    return str(dest)
+    _prune_dir(output_dir, max_frames, [".bmp", ".txt"], [".meta.json"])
+    return str(dest), thumb_filename
 
 
 def emit_placeholder_frame(
@@ -90,7 +93,7 @@ def emit_placeholder_frame(
     filename_prefix: str,
     frame_number: int,
     max_frames: int = 20,
-) -> str:
+) -> tuple[str, None]:
     outdir = Path(output_dir)
     outdir.mkdir(parents=True, exist_ok=True)
 
@@ -106,6 +109,7 @@ def emit_placeholder_frame(
         "file_type": "txt",
         "filename": dest.name,
         "filesize": dest.stat().st_size,
+        "thumb_filename": None,
         "created_ts": ts,
         "pipeline": [{
             "stage": "camera",
@@ -116,7 +120,7 @@ def emit_placeholder_frame(
     })
 
     _prune_dir(outdir, max_frames, [".bmp", ".txt"], [".meta.json", ".thumb.png"])
-    return str(dest)
+    return str(dest), None
 
 
 def emit_frame(
@@ -125,7 +129,7 @@ def emit_frame(
     filename_prefix: str,
     frame_number: int,
     max_frames: int = 20,
-) -> str:
+) -> tuple[str, str | None]:
     outdir = Path(output_dir)
     outdir.mkdir(parents=True, exist_ok=True)
     bmp_dir = Path(bmp_input_dir)

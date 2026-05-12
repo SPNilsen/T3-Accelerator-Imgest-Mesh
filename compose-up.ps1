@@ -7,6 +7,7 @@
 #   .\compose-up.ps1              # build + up (default)
 #   .\compose-up.ps1 -Down        # stop and remove containers
 #   .\compose-up.ps1 -Rebuild     # down + build + up (full restart)
+#   .\compose-up.ps1 -NoCache     # build without Docker layer cache
 #   .\compose-up.ps1 -Logs        # tail logs after starting
 #
 # SSL bypass (corporate Netskope proxy):
@@ -16,7 +17,8 @@
 param(
     [switch]$Down,
     [switch]$Rebuild,
-    [switch]$Logs
+    [switch]$Logs,
+    [switch]$NoCache
 )
 
 $dc = "C:\ProgramData\chocolatey\lib-bad\docker-compose\5.1.3\tools\docker-compose.exe"
@@ -36,7 +38,8 @@ if ($Down -or $Rebuild) {
 
 if (-not $Down) {
     Write-Host "Building images..." -ForegroundColor Cyan
-    & $dc build @services
+    $buildArgs = if ($NoCache) { @("build", "--no-cache") + $services } else { @("build") + $services }
+    & $dc @buildArgs
     if (-not $?) { Write-Error "Build failed."; exit 1 }
 
     Write-Host "Starting services..." -ForegroundColor Cyan

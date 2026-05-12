@@ -41,7 +41,12 @@ def set_mode(mode: str):
     STATUS["mode"] = mode
 
 
-def increment_frames(filename: str = None, file_type: str = None, filesize: int = None):
+def increment_frames(
+    filename: str = None,
+    file_type: str = None,
+    filesize: int = None,
+    thumb_filename: str = None,
+):
     ts = now_iso()
     STATUS["frames_emitted"] += 1
     STATUS["last_frame_ts"] = ts
@@ -50,6 +55,7 @@ def increment_frames(filename: str = None, file_type: str = None, filesize: int 
             "filename": filename,
             "file_type": file_type,
             "filesize": filesize,
+            "thumb_filename": thumb_filename,
             "ts": ts,
         })
         STATUS["recent_files"] = list(reversed(_recent))
@@ -78,6 +84,15 @@ def _latest_with_suffix(suffix: str) -> "Path | None":
 def latest_thumb():
     p = _latest_with_suffix(".thumb.png")
     if not p:
+        return Response(status_code=404)
+    return FileResponse(str(p), media_type="image/png")
+
+
+@app.get("/thumb/{filename}")
+def get_thumb(filename: str):
+    out = _load_output_dir()
+    p = out / filename
+    if not p.exists() or p.suffix != ".png":
         return Response(status_code=404)
     return FileResponse(str(p), media_type="image/png")
 
