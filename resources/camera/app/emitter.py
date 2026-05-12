@@ -60,6 +60,12 @@ def emit_bmp_frame(
     dest = output_dir / f"{stem}.bmp"
     shutil.copy(chosen, dest)  # copy2 preserves source mtime, breaking prune order
 
+    thumb_src = chosen.parent / f"{chosen.stem}.thumb.png"
+    if thumb_src.exists():
+        shutil.copy(thumb_src, dest.parent / f"{dest.stem}.thumb.png")
+    else:
+        log.warning("no thumbnail found for %s — /latest-thumb may lag", chosen.name)
+
     ts = _now_iso()
     _write_metadata(dest, {
         "frame_id": stem,
