@@ -13,3 +13,4 @@ storage:
   input_directory: /opt/inference/input
   json_output_directory: /opt/inference/output/json
   image_output_directory: /opt/inference/output/images
+  max_frames: 20

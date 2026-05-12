@@ -4,6 +4,7 @@
 
 FROM squidfunk/mkdocs-material AS build
 RUN pip install --no-cache-dir \
+    --trusted-host pypi.org --trusted-host files.pythonhosted.org \
     mkdocs-macros-plugin \
     mkdocs-glightbox \
     mkdocs-mermaid2-plugin \
