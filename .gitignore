@@ -18,8 +18,10 @@ env/
 *.pem
 *.key
 
-# Local dev data (docker-compose bind mounts)
-.data/
+# Local dev data — ignore runtime output dirs, track source images in bmp-input
+.data/frames/
+.data/routed/
+.data/results/
 
 # IDEs
 .vscode/
