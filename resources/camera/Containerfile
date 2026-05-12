@@ -2,17 +2,8 @@ FROM python:3.11-slim
 
 WORKDIR /opt/camera
 
-ARG SKIP_SSL_VERIFY=false
-
 COPY requirements.txt .
-RUN if [ "$SKIP_SSL_VERIFY" = "true" ]; then \
-      pip install --no-cache-dir \
-        --trusted-host pypi.org \
-        --trusted-host files.pythonhosted.org \
-        -r requirements.txt; \
-    else \
-      pip install --no-cache-dir -r requirements.txt; \
-    fi
+RUN pip install --no-cache-dir --trusted-host pypi.org --trusted-host files.pythonhosted.org -r requirements.txt
 
 COPY app ./app
 COPY config ./config
@@ -20,7 +11,8 @@ COPY scripts ./scripts
 COPY sample-data ./sample-data
 COPY output ./output
 
-RUN sed -i 's/\r$//' scripts/start.sh && chmod +x ./scripts/start.sh
+RUN sed -i 's/\r$//' ./scripts/start.sh
+RUN chmod +x ./scripts/start.sh
 
 EXPOSE 8081
 

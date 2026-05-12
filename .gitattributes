@@ -1,3 +1,29 @@
-# Force LF line endings for shell scripts regardless of OS checkout settings
-*.sh text eol=lf
+# Default to auto-detect, with LF in the working tree where sensible.
+* text=auto eol=lf
+
+# Shell scripts MUST be LF — exec-in-container will break otherwise
+# (env: 'bash\r': No such file or directory).
+*.sh    text eol=lf
 Containerfile text eol=lf
+Dockerfile    text eol=lf
+
+# Config formats that containers parse — keep LF
+*.yaml  text eol=lf
+*.yml   text eol=lf
+*.json  text eol=lf
+
+# Windows-native files stay CRLF
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
+*.ps1   text eol=crlf
+
+# Binary assets — never touch
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.pdf   binary
+*.onnx  binary
+*.pt    binary
+*.bin   binary

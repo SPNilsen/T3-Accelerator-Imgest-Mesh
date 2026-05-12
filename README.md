@@ -326,6 +326,91 @@ Typical applications include:
 
 ------------------------------------------------------------------------
 
+## Running locally on Windows (Docker Desktop)
+
+The repo ships a `docker-compose.yml` that runs the full pipeline on a CPU-only
+Windows machine (no NVIDIA GPU required). Inference runs in **mock mode** —
+each file routed to the inference service gets a random `pass`/`fail` verdict
+with a confidence score — useful for exercising wiring end-to-end before a
+real model is integrated.
+
+### Prerequisites
+
+- Docker Desktop for Windows (WSL2 or Hyper-V backend)
+- git, Python, VS Code recommended (not required at runtime)
+
+### First run
+
+```bash
+# from the repo root
+cp .env.example .env           # optional — no required vars yet
+docker compose build
+docker compose up -d
+```
+
+This brings up four containers:
+
+| Service      | Host port | Purpose                         |
+|--------------|-----------|---------------------------------|
+| webserver    | 8080      | Pipeline dashboard UI           |
+| camera       | 8081      | FastAPI — `/status`, `/healthz` |
+| orchestrator | 8082      | FastAPI — `/status`, `/healthz` |
+| inference    | 8083      | FastAPI — `/status`, `/healthz` |
+
+### Smoke test
+
+Open the dashboard and watch frames flow through:
+
+- Dashboard: <http://localhost:8080>
+- Raw status JSON:
+  - <http://localhost:8081/status>
+  - <http://localhost:8082/status>
+  - <http://localhost:8083/status>
+
+The camera emits placeholder frames every 2 seconds into `./.data/frames/`.
+The orchestrator routes them into `./.data/routed/`. The inference service
+writes verdict JSONs into `./.data/results/json/`. You can watch files
+appear in `./.data/` in real time.
+
+To verify end-to-end from a shell:
+
+```bash
+# watch verdicts arrive
+ls .data/results/json/
+cat .data/results/json/frame-00001.json
+```
+
+Expected content:
+
+```json
+{
+  "source_file": "frame-00001.txt",
+  "verdict": "pass",
+  "confidence": 0.87,
+  "mode": "mock",
+  "timestamp": "2026-04-21T..."
+}
+```
+
+### Tear down
+
+```bash
+docker compose down            # stop containers
+docker compose down -v         # also remove bind-mount state (delete .data/)
+```
+
+### Wiring details
+
+See [`docs/dev/local-dev.md`](docs/dev/local-dev.md) for how the services connect
+via shared bind-mounted directories, what's stubbed vs. real, and the
+migration path from mock inference to a real model.
+
+### Giving a demo
+
+See [`docs/dev/demo-guide.md`](docs/dev/demo-guide.md) for a 30-second smoke
+test, a narrated 5-minute demo, a 15-minute architecture deep-dive, and an
+audience-tuning cheatsheet (engineer / data scientist / manager / customer).
+
 ## Status
 
 This repository represents the **initial baseline of the Imgest-Mesh

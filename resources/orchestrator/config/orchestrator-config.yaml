@@ -15,3 +15,6 @@ routing:
   targets:
     - name: inference-1
       output_directory: /opt/orchestrator/output/inference-1
+
+storage:
+  max_frames: 20

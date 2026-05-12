@@ -22,7 +22,8 @@ def main():
     )
     status_thread.start()
 
-    router = Router(config["routing"]["targets"])
+    max_frames = config.get("storage", {}).get("max_frames", 20)
+    router = Router(config["routing"]["targets"], max_frames=max_frames)
 
     set_state("running")
     run_watch_loop(config, router)

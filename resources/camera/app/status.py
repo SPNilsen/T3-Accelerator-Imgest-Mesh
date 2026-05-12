@@ -1,3 +1,4 @@
+from collections import deque
 from datetime import datetime, UTC
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -18,7 +19,10 @@ STATUS = {
     "mode": "unknown",
     "frames_emitted": 0,
     "last_frame_ts": None,
+    "recent_files": [],   # last 10 emitted frames with metadata
 }
+
+_recent: deque = deque(maxlen=10)
 
 
 def now_iso():
@@ -33,9 +37,18 @@ def set_mode(mode: str):
     STATUS["mode"] = mode
 
 
-def increment_frames():
+def increment_frames(filename: str = None, file_type: str = None, filesize: int = None):
+    ts = now_iso()
     STATUS["frames_emitted"] += 1
-    STATUS["last_frame_ts"] = now_iso()
+    STATUS["last_frame_ts"] = ts
+    if filename:
+        _recent.append({
+            "filename": filename,
+            "file_type": file_type,
+            "filesize": filesize,
+            "ts": ts,
+        })
+        STATUS["recent_files"] = list(reversed(_recent))
 
 
 @app.get("/healthz")
