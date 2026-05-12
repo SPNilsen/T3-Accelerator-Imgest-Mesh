@@ -17,12 +17,17 @@ def run_capture_loop(config: dict):
     frame_number = 1
 
     while True:
-        result_path = emit_frame(
+        result_path, thumb_filename = emit_frame(
             output_dir, bmp_input_dir, filename_prefix, frame_number, storage_max_frames
         )
         p = Path(result_path)
         file_type = "bmp" if p.suffix == ".bmp" else "txt"
-        increment_frames(filename=p.name, file_type=file_type, filesize=os.path.getsize(result_path))
+        increment_frames(
+            filename=p.name,
+            file_type=file_type,
+            filesize=os.path.getsize(result_path),
+            thumb_filename=thumb_filename,
+        )
 
         if max_frames and frame_number >= max_frames:
             break

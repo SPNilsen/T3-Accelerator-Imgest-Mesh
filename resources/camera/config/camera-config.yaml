@@ -10,7 +10,7 @@ capture:
   max_frames: 0   # 0 means run continuously
 
 input:
-  bmp_directory: /opt/camera/bmp-input   # drop BMP files here; falls back to placeholder text if empty
+  bmp_directory: /opt/camera/bmp-input   # bind-mounted from .data/bmp-input; falls back to placeholder text if empty
 
 output:
   directory: /opt/camera/output
