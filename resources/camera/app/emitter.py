@@ -58,7 +58,7 @@ def emit_bmp_frame(
 
     stem = f"{filename_prefix}-{frame_number:05d}"
     dest = output_dir / f"{stem}.bmp"
-    shutil.copy2(chosen, dest)
+    shutil.copy(chosen, dest)  # copy2 preserves source mtime, breaking prune order
 
     ts = _now_iso()
     _write_metadata(dest, {

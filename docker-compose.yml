@@ -26,6 +26,8 @@ services:
     build:
       context: ./resources/camera
       dockerfile: Containerfile
+      args:
+        SKIP_SSL_VERIFY: ${SKIP_SSL_VERIFY:-false}
     image: imgest-mesh/camera:dev
     container_name: imgest-camera
     ports:
@@ -45,6 +47,8 @@ services:
     build:
       context: ./resources/orchestrator
       dockerfile: Containerfile
+      args:
+        SKIP_SSL_VERIFY: ${SKIP_SSL_VERIFY:-false}
     image: imgest-mesh/orchestrator:dev
     container_name: imgest-orchestrator
     ports:
@@ -66,6 +70,8 @@ services:
     build:
       context: ./resources/inference
       dockerfile: Containerfile
+      args:
+        SKIP_SSL_VERIFY: ${SKIP_SSL_VERIFY:-false}
     image: imgest-mesh/inference:dev
     container_name: imgest-inference
     ports:
