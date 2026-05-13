@@ -1,0 +1,38 @@
+# GPU inference image — used for Cisco AI Pod (A100) deployment.
+# Base: NVIDIA TensorRT image with CUDA 12 + Python 3.11.
+# Build with: docker build -f resources/inference/Containerfile.gpu \
+#               -t <registry>/imgest-mesh/inference-gpu:dev \
+#               resources/inference/
+#
+# Runtime env vars required:
+#   INFERENCE_MODE=real
+#   MODEL_ENGINE_PATH=/opt/inference/models/lens_defect_detector.engine
+#   CONFIDENCE_THRESHOLD=0.5  (optional, default 0.5)
+
+FROM nvcr.io/nvidia/tensorrt:24.01-py3
+
+WORKDIR /opt/inference
+
+# System deps for OpenCV headless
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        libgl1 \
+        libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Python deps (TRT and pycuda already in base image)
+COPY requirements.txt .
+COPY requirements.gpu.txt .
+RUN pip install --no-cache-dir -r requirements.txt -r requirements.gpu.txt
+
+COPY app ./app
+COPY config ./config
+COPY scripts ./scripts
+COPY models ./models
+
+RUN mkdir -p /opt/inference/input /opt/inference/output/json /opt/inference/output/images
+RUN sed -i 's/\r$//' ./scripts/start.sh
+RUN chmod +x ./scripts/start.sh
+
+EXPOSE 8083
+
+CMD ["./scripts/start.sh"]

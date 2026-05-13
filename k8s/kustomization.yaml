@@ -1,0 +1,42 @@
+# Apply everything: kubectl apply -k k8s/
+#
+# Before applying, update all REGISTRY placeholders:
+#   sed -i 's|REGISTRY|your.registry.example.com|g' k8s/*.yaml
+# Or set the images block below:
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: imgest-mesh
+
+resources:
+  - namespace.yaml
+  - pvc.yaml
+  - configmap-camera.yaml
+  - configmap-inference.yaml
+  - deploy-camera.yaml
+  - deploy-orchestrator.yaml
+  - deploy-inference.yaml
+  - deploy-webserver.yaml
+  - deploy-docs.yaml
+  - services.yaml
+
+# TODO: replace REGISTRY with your actual registry once known.
+# Kustomize image overrides are cleaner than editing each manifest:
+#
+# images:
+#   - name: REGISTRY/imgest-mesh/camera
+#     newName: harbor.cisco-ai-pod.example.com/imgest-mesh/camera
+#     newTag: latest
+#   - name: REGISTRY/imgest-mesh/orchestrator
+#     newName: harbor.cisco-ai-pod.example.com/imgest-mesh/orchestrator
+#     newTag: latest
+#   - name: REGISTRY/imgest-mesh/inference-gpu
+#     newName: harbor.cisco-ai-pod.example.com/imgest-mesh/inference-gpu
+#     newTag: latest
+#   - name: REGISTRY/imgest-mesh/webserver
+#     newName: harbor.cisco-ai-pod.example.com/imgest-mesh/webserver
+#     newTag: latest
+#   - name: REGISTRY/imgest-mesh/docs
+#     newName: harbor.cisco-ai-pod.example.com/imgest-mesh/docs
+#     newTag: latest

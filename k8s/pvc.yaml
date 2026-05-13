@@ -1,0 +1,37 @@
+---
+# Shared pipeline data volume.
+# All pipeline services mount subPaths of this single PVC, mirroring the
+# .data/ bind-mount layout used in Docker Compose.
+#
+# TODO: set storageClassName to match your AI Pod cluster's available class.
+#   Run: kubectl get storageclass
+#   Common values: local-storage, nfs-client, rook-cephfs, longhorn
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: imgest-mesh-data
+  namespace: imgest-mesh
+spec:
+  accessModes:
+    - ReadWriteMany        # multiple pods read/write concurrently
+  storageClassName: nfs-client  # TODO: update to your storage class
+  resources:
+    requests:
+      storage: 10Gi
+---
+# Separate PVC for the TensorRT engine file.
+# Seed with: kubectl cp lens_defect_detector.engine \
+#   imgest-mesh/<inference-pod>:/opt/inference/models/
+# Or use an init container to pull from object storage.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: imgest-mesh-models
+  namespace: imgest-mesh
+spec:
+  accessModes:
+    - ReadOnlyMany
+  storageClassName: nfs-client  # TODO: update to your storage class
+  resources:
+    requests:
+      storage: 5Gi

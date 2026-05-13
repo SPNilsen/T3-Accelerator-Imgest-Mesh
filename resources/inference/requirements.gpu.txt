@@ -1,0 +1,5 @@
+# Additional deps for real TensorRT inference (GPU image only).
+# pycuda and tensorrt are pre-installed in nvcr.io/nvidia/tensorrt base —
+# listed here for documentation; pip will skip if already satisfied.
+pycuda>=2024.1
+opencv-python-headless>=4.9.0

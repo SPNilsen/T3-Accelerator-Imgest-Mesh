@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: inference-config
+  namespace: imgest-mesh
+data:
+  inference-config.yaml: |
+    service_name: inference
+    mode: real
+
+    status:
+      host: 0.0.0.0
+      port: 8083
+
+    model:
+      name: lens-defect-detector-trt
+      path: /opt/inference/models/lens_defect_detector.engine
+
+    storage:
+      input_directory: /opt/inference/input
+      json_output_directory: /opt/inference/output/json
+      image_output_directory: /opt/inference/output/images
+      max_frames: 20
