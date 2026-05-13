@@ -1,7 +1,7 @@
 ---
 id: job-2
 title: Cisco AI Pod demo prep — K8s manifests + GPU + real inference
-status: not-started
+status: done
 branch: feature/cisco-demo-manifests
 base-branch: dev
 assigned: Sean
