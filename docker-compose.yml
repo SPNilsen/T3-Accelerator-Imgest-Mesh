@@ -113,30 +113,9 @@ services:
   jnj-armor-docs:
     build:
       context: ${JNJ_ARMOR_REPO_PATH:-../T3-Accelerator-JNJ-Armor}
-      dockerfile_inline: |
-        FROM squidfunk/mkdocs-material AS build
-        RUN pip install --no-cache-dir \
-            mkdocs-macros-plugin \
-            mkdocs-glightbox \
-            mkdocs-mermaid2-plugin \
-            mkdocs-charts-plugin \
-            mkdocs-pdf \
-            mkdocs-gallery \
-            mkdocs-git-latest-changes-plugin \
-            mkdocs-git-revision-date-localized-plugin \
-            mkdocs-drawio-file
-        WORKDIR /site
-        COPY mkdocs.yml /site/mkdocs.yml
-        COPY docs /site/docs
-        COPY .git /site/.git
-        # Strip repo_url / repo_name so the Material header has no GitLab
-        # link in this demo. JNJ-Armor source is untouched; this rewrites
-        # only the in-image copy at build time.
-        RUN sed -i '/^repo_url:/d; /^repo_name:/d' /site/mkdocs.yml
-        RUN mkdocs build -d /site/build
-        FROM nginxinc/nginx-unprivileged:stable-alpine
-        COPY --from=build /site/build /usr/share/nginx/html
-        EXPOSE 8080
+      dockerfile: ../t3-imgest-mesh/resources/jnj-armor-docs/Containerfile
+      args:
+        SKIP_SSL_VERIFY: ${SKIP_SSL_VERIFY:-false}
     image: imgest-mesh/jnj-armor-docs:dev
     container_name: imgest-jnj-armor-docs
     ports:

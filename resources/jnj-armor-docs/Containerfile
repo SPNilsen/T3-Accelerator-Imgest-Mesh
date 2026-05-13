@@ -1,0 +1,38 @@
+ARG SKIP_SSL_VERIFY=false
+FROM squidfunk/mkdocs-material AS build
+
+ARG SKIP_SSL_VERIFY
+RUN if [ "$SKIP_SSL_VERIFY" = "true" ]; then \
+      pip install --no-cache-dir --trusted-host pypi.org --trusted-host files.pythonhosted.org \
+        mkdocs-macros-plugin \
+        mkdocs-glightbox \
+        mkdocs-mermaid2-plugin \
+        mkdocs-charts-plugin \
+        mkdocs-pdf \
+        mkdocs-gallery \
+        mkdocs-git-latest-changes-plugin \
+        mkdocs-git-revision-date-localized-plugin \
+        mkdocs-drawio-file; \
+    else \
+      pip install --no-cache-dir \
+        mkdocs-macros-plugin \
+        mkdocs-glightbox \
+        mkdocs-mermaid2-plugin \
+        mkdocs-charts-plugin \
+        mkdocs-pdf \
+        mkdocs-gallery \
+        mkdocs-git-latest-changes-plugin \
+        mkdocs-git-revision-date-localized-plugin \
+        mkdocs-drawio-file; \
+    fi
+
+WORKDIR /site
+COPY mkdocs.yml /site/mkdocs.yml
+COPY docs /site/docs
+COPY .git /site/.git
+RUN sed -i '/^repo_url:/d; /^repo_name:/d' /site/mkdocs.yml
+RUN mkdocs build -d /site/build
+
+FROM nginxinc/nginx-unprivileged:stable-alpine
+COPY --from=build /site/build /usr/share/nginx/html
+EXPOSE 8080
