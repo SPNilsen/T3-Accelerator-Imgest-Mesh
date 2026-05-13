@@ -267,6 +267,20 @@ body {
     font-style: italic;
     font-size: 13px;
 }
+
+@keyframes panel-flash {
+    0%   { opacity: 1;   }
+    40%  { opacity: 0.3; }
+    100% { opacity: 1;   }
+}
+
+.panel-updated {
+    animation: panel-flash 250ms ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .panel-updated { animation: none; }
+}
 </style>
 </head>
 
@@ -406,6 +420,18 @@ const CAMERA_URL       = "http://localhost:8081/status";
 const ORCHESTRATOR_URL = "http://localhost:8082/status";
 const INFERENCE_URL    = "http://localhost:8083/status";
 
+/* ── Change tracking state ──────────────────────────────────────────── */
+let lastCameraThumb      = null;
+let lastOrchestratorFile = null;
+let lastInferenceTs      = null;
+
+function flashElement(el) {
+    el.classList.remove("panel-updated");
+    void el.offsetWidth; // force reflow so re-adding the class triggers a fresh animation
+    el.classList.add("panel-updated");
+    el.addEventListener("animationend", () => el.classList.remove("panel-updated"), { once: true });
+}
+
 /* ── JSON formatter ─────────────────────────────────────────────────── */
 function formatJson(obj) {
     return JSON.stringify(obj, null, 2);
@@ -530,10 +556,15 @@ function updateCameraPanel(data) {
 
     // Use the exact thumbnail linked to the latest frame; fall back to latest-thumb
     const recent0 = data && data.recent_files && data.recent_files[0];
-    const thumbName = recent0 && recent0.thumb_filename;
+    const thumbName = recent0 && recent0.thumb_filename || null;
     thumb.src = thumbName
         ? `http://localhost:8081/thumb/${encodeURIComponent(thumbName)}?t=${Date.now()}`
         : `http://localhost:8081/latest-thumb?t=${Date.now()}`;
+
+    if (lastCameraThumb !== null && thumbName !== lastCameraThumb) {
+        flashElement(thumb);
+    }
+    lastCameraThumb = thumbName;
 
     if (recent0) {
         const size = recent0.filesize != null
@@ -580,6 +611,11 @@ function updateOrchestratorPanel(data) {
             ? recent.metadata.pipeline
             : (recent.pipeline || null),
     };
+    const newFile = recent.filename || null;
+    if (lastOrchestratorFile !== null && newFile !== lastOrchestratorFile) {
+        flashElement(pre);
+    }
+    lastOrchestratorFile = newFile;
     pre.textContent = formatJson(subset);
 }
 
@@ -600,6 +636,11 @@ function updateInferencePanel(data) {
             ? recent.metadata.pipeline
             : (recent.pipeline || null),
     };
+    const newTs = recent.ts || null;
+    if (lastInferenceTs !== null && newTs !== lastInferenceTs) {
+        flashElement(pre);
+    }
+    lastInferenceTs = newTs;
     pre.textContent = formatJson(subset);
 }
 

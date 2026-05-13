@@ -11,6 +11,7 @@ Format: `| ID | Title | Assigned | Status | Branch | SP |`
 | job-5 | Linked JNJ-Armor docs container — surface customer docs alongside generic platform docs | Sean | done | feature/jnj-armor-docs-container | 4 |
 | job-6 | Dashboard column layout + per-service detail panels (offline-safe) | Sean | done | feature/dashboard-grid-layout | 5 |
 | job-7 | Per-directory storage retention — max 20 frames across all pipeline stages | Sean | done | feature/storage-retention | 3 |
+| job-8 | Panel change indicators — cross-fade on content update | Sean | done | feature/panel-change-indicators | 2 |
 
 ## Status values
 - `not-started` — in queue
