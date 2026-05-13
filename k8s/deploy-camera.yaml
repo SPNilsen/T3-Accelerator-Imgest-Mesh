@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: camera
+  namespace: imgest-mesh
+  labels:
+    app: camera
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: camera
+  template:
+    metadata:
+      labels:
+        app: camera
+    spec:
+      containers:
+        - name: camera
+          image: REGISTRY/imgest-mesh/camera:latest  # TODO: set registry
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8081
+          volumeMounts:
+            - name: data
+              mountPath: /opt/camera/output
+              subPath: frames
+            - name: data
+              mountPath: /opt/camera/bmp-input
+              subPath: bmp-input
+            - name: config
+              mountPath: /opt/camera/config/camera-config.yaml
+              subPath: camera-config.yaml
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8081
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8081
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: imgest-mesh-data
+        - name: config
+          configMap:
+            name: camera-config

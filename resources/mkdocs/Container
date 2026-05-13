@@ -1,13 +1,32 @@
 FROM squidfunk/mkdocs-material
-RUN pip install mkdocs-macros-plugin
-RUN pip install mkdocs-glightbox
-RUN pip install mkdocs-mermaid2-plugin
-RUN pip install mkdocs-charts-plugin
-RUN pip install mkdocs-pdf
-RUN pip install mkdocs-gallery
-RUN pip install mkdocs-git-latest-changes-plugin
-RUN pip install mkdocs-git-revision-date-localized-plugin
-RUN pip install mkdocs-drawio-file
+
+ARG SKIP_SSL_VERIFY=false
+
+RUN if [ "$SKIP_SSL_VERIFY" = "true" ]; then \
+      pip install --no-cache-dir \
+        --trusted-host pypi.org \
+        --trusted-host files.pythonhosted.org \
+        mkdocs-macros-plugin \
+        mkdocs-glightbox \
+        mkdocs-mermaid2-plugin \
+        mkdocs-charts-plugin \
+        mkdocs-pdf \
+        mkdocs-gallery \
+        mkdocs-git-latest-changes-plugin \
+        mkdocs-git-revision-date-localized-plugin \
+        mkdocs-drawio-file; \
+    else \
+      pip install --no-cache-dir \
+        mkdocs-macros-plugin \
+        mkdocs-glightbox \
+        mkdocs-mermaid2-plugin \
+        mkdocs-charts-plugin \
+        mkdocs-pdf \
+        mkdocs-gallery \
+        mkdocs-git-latest-changes-plugin \
+        mkdocs-git-revision-date-localized-plugin \
+        mkdocs-drawio-file; \
+    fi
 
 # this is for laters...
 #CMD python3 -m pip freeze > requirements.txt

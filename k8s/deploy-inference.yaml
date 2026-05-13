@@ -1,0 +1,81 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inference
+  namespace: imgest-mesh
+  labels:
+    app: inference
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inference
+  template:
+    metadata:
+      labels:
+        app: inference
+    spec:
+      # TODO: verify the GPU node label on your AI Pod cluster.
+      #   Run: kubectl get nodes --show-labels | grep -i gpu
+      nodeSelector:
+        nvidia.com/gpu.present: "true"
+      containers:
+        - name: inference
+          image: REGISTRY/imgest-mesh/inference-gpu:latest  # TODO: set registry
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8083
+          env:
+            - name: INFERENCE_MODE
+              value: "real"
+            - name: MODEL_ENGINE_PATH
+              value: "/opt/inference/models/lens_defect_detector.engine"
+            - name: CONFIDENCE_THRESHOLD
+              value: "0.5"
+          volumeMounts:
+            - name: data
+              mountPath: /opt/inference/input
+              subPath: routed
+            - name: data
+              mountPath: /opt/inference/output/json
+              subPath: results/json
+            - name: data
+              mountPath: /opt/inference/output/images
+              subPath: results/images
+            - name: models
+              mountPath: /opt/inference/models
+              readOnly: true
+            - name: config
+              mountPath: /opt/inference/config/inference-config.yaml
+              subPath: inference-config.yaml
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8083
+            initialDelaySeconds: 30   # TRT engine load takes time
+            periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8083
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: "1"
+              memory: "4Gi"
+              nvidia.com/gpu: "1"
+            limits:
+              cpu: "4"
+              memory: "16Gi"
+              nvidia.com/gpu: "1"
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: imgest-mesh-data
+        - name: models
+          persistentVolumeClaim:
+            claimName: imgest-mesh-models
+        - name: config
+          configMap:
+            name: inference-config

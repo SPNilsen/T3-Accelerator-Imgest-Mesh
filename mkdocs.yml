@@ -87,6 +87,10 @@ nav:
     - 'F.A.Q.': 't3/faq.md'
     - 'Glossary': 't3/glossary.md'
     - '<tt>git</tt> Log': 't3/gitlog.md'
+  - 'Developer Guides':
+    - 'Local Dev': 'dev/local-dev.md'
+    - 'Demo Guide': 'dev/demo-guide.md'
+    - 'K8s Deployment (Cisco AI Pod)': 'dev/k8s-deployment.md'
   - 'JNJ-Armor Project':
     - 'Executive Overview': 'http://localhost:8001/t3/exec-overview.html'
     - 'Filemap':            'http://localhost:8001/t3/filemap.html'

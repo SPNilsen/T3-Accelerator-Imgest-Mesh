@@ -1,5 +1,8 @@
 service_name: inference
-mode: placeholder-model
+# mode is overridden by INFERENCE_MODE env var at runtime:
+#   mock — random pass/fail (default, no GPU required)
+#   real — TensorRT engine (requires MODEL_ENGINE_PATH + GPU)
+mode: mock
 
 status:
   host: 0.0.0.0
