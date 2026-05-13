@@ -29,7 +29,7 @@ if (-not (Test-Path $dc)) {
     exit 1
 }
 
-$services = "camera", "orchestrator", "inference", "webserver", "docs"
+$services = "camera", "orchestrator", "inference", "webserver", "docs", "jnj-armor-docs"
 
 if ($Down -or $Rebuild) {
     Write-Host "Stopping containers..." -ForegroundColor Cyan
