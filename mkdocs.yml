@@ -91,6 +91,9 @@ nav:
     - 'Local Dev': 'dev/local-dev.md'
     - 'Demo Guide': 'dev/demo-guide.md'
     - 'K8s Deployment (Cisco AI Pod)': 'dev/k8s-deployment.md'
+  - 'Runbooks':
+    - 'Cisco AI Pod Demo': 'runbook/cisco-demo.md'
+    - 'Cluster Setup': 'runbook/setup-cluster.md'
   - 'JNJ-Armor Project':
     - 'Executive Overview': 'http://localhost:8001/t3/exec-overview.html'
     - 'Filemap':            'http://localhost:8001/t3/filemap.html'

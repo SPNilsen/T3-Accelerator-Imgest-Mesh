@@ -147,9 +147,9 @@ Talking point: *"We're deliberately decoupling 'the pipeline works' from 'we hav
 
 ### D. Read the K8s manifest
 
-Open `resources/k8s/webserver/deployment.yaml`. Show how the Route, Service, and Deployment map onto OpenShift.
+Open `k8s/deploy-webserver.yaml`. Show how the Deployment and Service map onto the cluster.
 
-Talking point: *"The webserver has a full manifest set. The other three services need the same treatment before the Cisco demo — that's the next job."*
+Talking point: *"Every service has a full K8s manifest — camera, orchestrator, inference, webserver, docs. One `kubectl apply -k k8s/` deploys the entire stack to the Cisco AI Pod. The inference deployment gets `nvidia.com/gpu: 1` resource limits and a GPU node selector — that's the only thing that distinguishes it from a CPU service."*
 
 ### E. The two dashed bubbles — target architecture + drop-in path
 
